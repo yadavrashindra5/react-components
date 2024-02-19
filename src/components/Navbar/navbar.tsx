@@ -1,29 +1,47 @@
+import Heading from "../Heading/heading";
 import styles from "./navbar.module.css";
+
+const navbarObj = [
+  {
+    socialMedia: "github",
+    href: "https://github.com/Divyue30597",
+    src: "/github.svg",
+    alt: "github-icon",
+  },
+  {
+    socialMedia: "linkedIn",
+    href: "https://www.linkedin.com/in/divyue-sharma-791064119/",
+    src: "/linkedIn.svg",
+    alt: "linkedIn-icon",
+  },
+  {
+    socialMedia: "Twitter",
+    href: "https://twitter.com/divyue",
+    src: "/twitter.svg",
+    alt: "twitter-icon",
+  },
+];
 
 export default function Navbar() {
   return (
     <header>
       <nav className={styles.navbar}>
-        <h1>✌️ Shady Library</h1>
+        <Heading
+          className={styles.heading}
+          heading="h1"
+          headingText="✌️ Shady Fluent Library"
+          fontSize="32px"
+        />
         <ul>
-          <li>
-            <a target="_blank" href="https://github.com/Divyue30597">
-              <img src="/github.svg" alt="github-icon" />
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/divyue-sharma-791064119/"
-            >
-              <img src="/linkedIn.svg" />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://twitter.com/Divyue">
-              <img src="/twitter.svg" />
-            </a>
-          </li>
+          {navbarObj.map((navbar) => {
+            return (
+              <li key={navbar.socialMedia}>
+                <a target="_blank" href={navbar.href}>
+                  <img src={navbar.src} alt={navbar.alt} />
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>
