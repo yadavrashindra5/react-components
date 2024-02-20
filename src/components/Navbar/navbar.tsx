@@ -1,3 +1,4 @@
+import Container from "../Container/container";
 import Heading from "../Heading/heading";
 import styles from "./navbar.module.css";
 
@@ -24,26 +25,28 @@ const navbarObj = [
 
 export default function Navbar() {
   return (
-    <header>
-      <nav className={styles.navbar}>
-        <Heading
-          className={styles.heading}
-          heading="h1"
-          headingText="✌️ Shady Fluent Library"
-          fontSize="32px"
-        />
-        <ul>
-          {navbarObj.map((navbar) => {
-            return (
-              <li key={navbar.socialMedia}>
-                <a target="_blank" href={navbar.href}>
-                  <img src={navbar.src} alt={navbar.alt} />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </header>
+    <Container>
+      <header>
+        <nav className={styles.navbar}>
+          <Heading
+            className={styles.heading}
+            heading="h1"
+            headingText=" ✌️ Shady Fluent Library"
+            fontSize="32px"
+          />
+          <ul>
+            {navbarObj.map((navbar) => {
+              return (
+                <li key={navbar.socialMedia}>
+                  <a target="_blank" href={navbar.href}>
+                    <img src={navbar.src} alt={navbar.alt} />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </header>
+    </Container>
   );
 }

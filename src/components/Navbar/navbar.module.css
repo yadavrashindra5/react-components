@@ -2,17 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0px;
-}
-
-.navbar h1 {
-  font-family: poppins-bold;
+  padding: 1.2rem 0rem;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 2.4rem;
 }
 
 .navbar ul li {
@@ -27,5 +23,5 @@
 }
 
 .navbar > ul > li > a > img {
-  max-width: 30px;
+  max-width: 3rem;
 }

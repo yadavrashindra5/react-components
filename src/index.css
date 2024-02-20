@@ -88,8 +88,29 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  /* Set the base font size to 10px (62.5% of 16px) */
+  /* font-size: 1.6rem;  Equivalent to 16px (1.6 * 10px) */
+  font-size: 62.5%;
 }
 
 p {
+  font-family: poppins-regular;
+}
+
+h1 {
+  font-family: poppins-extra-bold;
+}
+
+h2,
+h3 {
+  font-family: poppins-bold;
+}
+
+h4,
+h5 {
+  font-family: poppins-semi-bold;
+}
+
+h6 {
   font-family: poppins-regular;
 }
