@@ -1,0 +1,12 @@
+.code_lists {
+  font-family: poppins-regular;
+  margin-top: 1.2rem;
+  width: 100%;
+  margin-left: 3.6rem;
+}
+
+.code_lists > li {
+  list-style: "➡️ ";
+  font-size: 1.8rem;
+  margin-top: 0.8rem;
+}

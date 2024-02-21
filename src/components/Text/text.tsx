@@ -5,6 +5,6 @@ interface IText {
   className?: string;
 }
 
-export default function Text({ text, className }: IText) {
+export default function Text({ text, className = "" }: IText) {
   return <p className={styles.text + " " + className}>{text}</p>;
 }
