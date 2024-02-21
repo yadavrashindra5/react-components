@@ -6,7 +6,7 @@ import Text from "../../components/Text/text";
 
 interface IComponentsView {
   heading: string;
-  subHeading: string;
+  subHeading: string[];
   children?: React.ReactNode;
 }
 
@@ -16,9 +16,15 @@ export default function ComponentsView({
   children,
 }: IComponentsView) {
   return (
-    <section>
+    <section className={styles.components_view}>
       <Heading heading="h3" headingText={heading} />
-      <Text text={subHeading} fontSize="20px" />
+      {subHeading.length === 1 ? (
+        <Text text={subHeading[0]} />
+      ) : (
+        subHeading.map((subHeadingText, index) => (
+          <Text text={subHeadingText} key={index} />
+        ))
+      )}
       <Box className={styles.componentsView}>{children}</Box>
     </section>
   );
