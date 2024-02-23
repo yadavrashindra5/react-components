@@ -93,7 +93,7 @@
   font-size: 62.5%;
   --primary-color: #4da1ff;
   --secondary-color: #00dfa2;
-  --tertiary-color: #faef9b;
+  --tertiary-color: #f4ce14;
   --danger-color: #ff0060;
 
   /* button color */
@@ -102,7 +102,7 @@
   --secondary-button-color: var(--secondary-color);
   --secondary-button-color-on-hover: #00b282;
   --tertiary-button-color: var(--tertiary-color);
-  --tertiary-button-color-on-hover: #c8bf7c;
+  --tertiary-button-color-on-hover: #c3a510;
   --danger-button-color: var(--danger-color);
   --danger-button-color-on-hover: #cc004d;
 }
