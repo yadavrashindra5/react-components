@@ -8,7 +8,7 @@ import CodeLists from "../../components/CodeLists/codeLists";
 interface IComponentsView {
   heading: string;
   subHeading: string[];
-  propsAccepted: string[];
+  propsAccepted?: string[];
   children?: React.ReactNode;
 }
 

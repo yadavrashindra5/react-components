@@ -1,0 +1,41 @@
+.button_section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.primary {
+  background-color: var(--primary-button-color);
+}
+
+.primary:hover {
+  box-shadow: 6px 6px 2px 1px #0079ff60;
+  background-color: var(--primary-button-color-on-hover);
+}
+
+.secondary {
+  background-color: var(--secondary-button-color);
+}
+
+.secondary:hover {
+  box-shadow: 6px 6px 2px 1px #00b28240;
+  background-color: var(--secondary-button-color-on-hover);
+}
+
+.tertiary {
+  background-color: var(--tertiary-button-color);
+}
+
+.tertiary:hover {
+  box-shadow: 6px 6px 2px 1px #c8bf7c60;
+  background-color: var(--tertiary-button-color-on-hover);
+}
+
+.danger {
+  background-color: var(--danger-button-color);
+}
+
+.danger:hover {
+  box-shadow: 6px 6px 2px 1px #cc004d40;
+  background-color: var(--danger-button-color-on-hover);
+}
+

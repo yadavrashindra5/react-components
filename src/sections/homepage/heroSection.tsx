@@ -12,11 +12,7 @@ export default function HeroSection() {
         // fontSize="36px"
         className={styles.home_heading}
       />
-      <Text
-        text="A Simple Component Library built with React and CSS to create some personal projects."
-        fontSize="20px"
-        marginBottom="64px"
-      />
+      <Text text="A Simple Component Library built with React and CSS to create some personal projects." />
     </>
   );
 }

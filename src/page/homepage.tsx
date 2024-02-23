@@ -1,15 +1,17 @@
+import React from "react";
 import Container from "../components/Container/container";
 import Heading, { THeading } from "../components/Heading/heading";
 import Text from "../components/Text/text";
 import ComponentsView from "../sections/componentsView/componentsView";
 import HeroSection from "../sections/homepage/heroSection";
+import ButtonSection from "../sections/ButtonSection/buttonSection";
 
 type THomePageComponentType = {
   id: number;
   heading: string;
   subHeading: string[];
-  propsAccepted: string[];
-  children: React.ReactNode | React.ReactNode[];
+  propsAccepted?: string[];
+  children: React.ReactNode;
 };
 
 export default function Homepage() {
@@ -53,6 +55,20 @@ export default function Homepage() {
       ],
       children: <Text text="The quick brown fox jumps over the lazy dog." />,
     },
+    {
+      id: 3,
+      heading: "Buttons",
+      subHeading: [
+        "A Button element is used to create a clickable button on a web page. Buttons are an essential part of web forms and user interfaces, allowing users to trigger actions or submit forms. ",
+      ],
+      propsAccepted: [
+        "The Button component accepts four props namely className, buttonName, onClick function and disabled.",
+        "className can be used to provide your own styling.",
+        "buttonName as the name suggests, provide the name of the button.",
+        "onClick is a function, where you can provide a function which returns a void or nothing.",
+      ],
+      children: <ButtonSection />,
+    },
   ];
 
   return (
@@ -62,16 +78,17 @@ export default function Homepage() {
         <hr />
         {homePageComponentArr.map((homePageComponent) => {
           return (
-            <ComponentsView
-              key={homePageComponent.id}
-              heading={homePageComponent.heading}
-              subHeading={homePageComponent.subHeading}
-              propsAccepted={homePageComponent.propsAccepted}
-              children={homePageComponent.children}
-            />
+            <React.Fragment key={homePageComponent.id}>
+              <ComponentsView
+                heading={homePageComponent.heading}
+                subHeading={homePageComponent.subHeading}
+                propsAccepted={homePageComponent?.propsAccepted}
+                children={homePageComponent.children}
+              />
+              <hr />
+            </React.Fragment>
           );
         })}
-        <hr />
       </section>
     </Container>
   );

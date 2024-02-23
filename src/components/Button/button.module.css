@@ -1,0 +1,25 @@
+.button {
+  padding: 1.4rem 2rem;
+  font-size: 1.8rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-family: poppins-semi-bold;
+  background-color: #fff;
+}
+
+.button:hover {
+  transition: 300ms;
+  background-color: #595959;
+  box-shadow: 6px 6px 2px 1px rgba(59, 59, 59, 0.2);
+  color: #fff;
+}
+
+.button:disabled {
+  cursor: default;
+  box-shadow: none;
+  color: #d6d6d6;
+}
+
+.button:disabled:hover {
+  background-color: #fff;
+}
