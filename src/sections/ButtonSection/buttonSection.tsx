@@ -6,28 +6,28 @@ import Heading from "../../components/Heading/heading";
 export default function ButtonSection() {
   const buttonTypes: IButton[] = [
     {
-      buttonName: "Simple",
+      buttonName: "Default",
       className: "",
       disabled: false,
     },
     {
       buttonName: "Primary",
-      className: styles.primary,
+      className: "primary",
       disabled: false,
     },
     {
       buttonName: "Secondary",
-      className: styles.secondary,
+      className: "secondary",
       disabled: false,
     },
     {
       buttonName: "Tertiary",
-      className: styles.tertiary,
+      className: "tertiary",
       disabled: false,
     },
     {
       buttonName: "Danger",
-      className: styles.danger,
+      className: "danger",
       disabled: false,
     },
     {
@@ -39,66 +39,66 @@ export default function ButtonSection() {
 
   const secondaryButtonTypes: IButton[] = [
     {
-      buttonName: "Simple",
-      className: styles.secondary_simple,
+      buttonName: "Default",
+      className: "secondary_simple",
       disabled: false,
     },
     {
       buttonName: "Primary",
-      className: styles.secondary_primary,
+      className: "secondary_primary",
       disabled: false,
     },
     {
       buttonName: "Secondary",
-      className: styles.secondary_secondary,
+      className: "secondary_secondary",
       disabled: false,
     },
     {
       buttonName: "Tertiary",
-      className: styles.secondary_tertiary,
+      className: "secondary_tertiary",
       disabled: false,
     },
     {
       buttonName: "Danger",
-      className: styles.secondary_danger,
+      className: "secondary_danger",
       disabled: false,
     },
     {
       buttonName: "Disabled",
-      // className: styles.secondary_disabled,
+      // className: "secondary_disabled",
       disabled: true,
     },
   ];
 
   const tertiaryButtonTypes: IButton[] = [
     {
-      buttonName: "Simple",
-      className: styles.tertiary_simple,
+      buttonName: "Default",
+      className: "tertiary_simple",
       disabled: false,
     },
     {
       buttonName: "Primary",
-      className: styles.tertiary_primary,
+      className: "tertiary_primary",
       disabled: false,
     },
     {
       buttonName: "Secondary",
-      className: styles.tertiary_secondary,
+      className: "tertiary_secondary",
       disabled: false,
     },
     {
       buttonName: "Tertiary",
-      className: styles.tertiary_tertiary,
+      className: "tertiary_tertiary",
       disabled: false,
     },
     {
       buttonName: "Danger",
-      className: styles.tertiary_danger,
+      className: "tertiary_danger",
       disabled: false,
     },
     {
       buttonName: "Disabled",
-      className: styles.tertiary_disabled,
+      className: "tertiary_disabled",
       disabled: true,
     },
   ];

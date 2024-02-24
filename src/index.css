@@ -128,3 +128,145 @@ h5 {
 h6 {
   font-family: poppins-regular;
 }
+
+.primary {
+  background-color: var(--primary-button-color);
+}
+.primary:hover {
+  box-shadow: 6px 6px 2px 1px #0079ff60;
+  background-color: var(--primary-button-color-on-hover);
+  color: #fff;
+}
+.secondary {
+  background-color: var(--secondary-button-color);
+}
+
+.secondary:hover {
+  box-shadow: 6px 6px 2px 1px #00b28240;
+  color: #fff;
+  background-color: var(--secondary-button-color-on-hover);
+}
+
+.tertiary {
+  background-color: var(--tertiary-button-color);
+}
+
+.tertiary:hover {
+  box-shadow: 6px 6px 2px 1px #c8bf7c60;
+  color: #fff;
+  background-color: var(--tertiary-button-color-on-hover);
+}
+
+.danger {
+  background-color: var(--danger-button-color);
+}
+
+.danger:hover {
+  box-shadow: 6px 6px 2px 1px #cc004d40;
+  color: #fff;
+  background-color: var(--danger-button-color-on-hover);
+}
+
+.secondary_primary {
+  background-color: #fff;
+  color: var(--primary-button-color);
+}
+
+.secondary_primary:hover {
+  color: #000;
+  background-color: var(--primary-button-color);
+  box-shadow: none;
+}
+
+.secondary_secondary {
+  background-color: #fff;
+  color: var(--secondary-button-color);
+}
+
+.secondary_secondary:hover {
+  color: #000;
+  background-color: var(--secondary-button-color);
+  box-shadow: none;
+}
+
+.secondary_tertiary {
+  background-color: #fff;
+  color: var(--tertiary-button-color);
+}
+
+.secondary_tertiary:hover {
+  color: #000;
+  background-color: var(--tertiary-button-color);
+  box-shadow: none;
+}
+
+.secondary_danger {
+  background-color: #fff;
+  color: var(--danger-button-color);
+}
+
+.secondary_danger:hover {
+  color: #000;
+  background-color: var(--danger-button-color);
+  box-shadow: none;
+}
+
+.secondary_simple {
+  color: #000;
+}
+.secondary_simple:hover {
+  box-shadow: none;
+}
+
+.tertiary_simple,
+.tertiary_primary,
+.tertiary_secondary,
+.tertiary_tertiary,
+.tertiary_danger,
+.tertiary_disabled {
+  border: none;
+  padding: 0px 0px;
+}
+
+.tertiary_primary {
+  color: var(--primary-button-color);
+}
+
+.tertiary_secondary {
+  color: var(--secondary-button-color);
+}
+
+.tertiary_tertiary {
+  color: var(--tertiary-button-color);
+}
+
+.tertiary_danger {
+  color: var(--danger-button-color);
+}
+
+.tertiary_simple:hover,
+.tertiary_primary:hover,
+.tertiary_secondary:hover,
+.tertiary_tertiary:hover,
+.tertiary_danger:hover {
+  text-decoration: underline;
+  box-shadow: none;
+  color: #000;
+  background-color: #fff;
+}
+
+.tertiary_primary:hover {
+  color: var(--primary-button-color);
+}
+
+.tertiary_secondary:hover {
+  color: var(--secondary-button-color);
+}
+
+.tertiary_tertiary:hover {
+  color: var(--tertiary-button-color);
+}
+
+.tertiary_danger:hover {
+  color: var(--danger-button-color);
+}

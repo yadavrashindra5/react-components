@@ -21,13 +21,11 @@ export default function ComponentsView({
   return (
     <section className={styles.components_view}>
       <Heading heading="h3" headingText={heading} />
-      {subHeading.length === 1 ? (
-        <Text text={subHeading[0]} />
-      ) : (
-        subHeading.map((subHeadingText, index) => (
-          <Text text={subHeadingText} key={index} />
-        ))
-      )}
+      {subHeading.length > 1 && Array.isArray(subHeading)
+        ? subHeading.map((subHeadingText, index) => (
+            <Text text={subHeadingText} key={index} />
+          ))
+        : typeof subHeading === "string" && <Text text={subHeading} />}
       <Box>
         <Heading heading="h4" headingText="🧾 Props Accepted:" />
         <CodeLists textArr={propsAccepted} />

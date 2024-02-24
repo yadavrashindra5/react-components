@@ -5,6 +5,6 @@ interface IBox {
   className?: string;
 }
 
-export default function Box({ children, className = styles.box }: IBox) {
-  return <div className={className}>{children}</div>;
+export default function Box({ children, className = "" }: IBox) {
+  return <div className={styles.box + " " + className}>{children}</div>;
 }

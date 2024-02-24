@@ -5,11 +5,13 @@ import Text from "../components/Text/text";
 import ComponentsView from "../sections/componentsView/componentsView";
 import HeroSection from "../sections/homepage/heroSection";
 import ButtonSection from "../sections/ButtonSection/buttonSection";
+import Card from "../components/Card/card";
+import Button from "../components/Button/button";
 
 type THomePageComponentType = {
   id: number;
   heading: string;
-  subHeading: string[];
+  subHeading: string | string[];
   propsAccepted?: string[];
   children: React.ReactNode;
 };
@@ -21,9 +23,8 @@ export default function Homepage() {
     {
       id: 1,
       heading: "Heading",
-      subHeading: [
+      subHeading:
         "In HTML, <h1>, <h2>, and other heading elements (<h3>, <h4>, <h5>, <h6>) are used to define headings and subheadings in a document. These elements represent a hierarchy of importance and structure within the content.",
-      ],
       propsAccepted: [
         "The heading component expects three props namely heading, headingText and className.",
         "heading represent h1 till h6.",
@@ -45,9 +46,8 @@ export default function Homepage() {
     {
       id: 2,
       heading: "Paragraph",
-      subHeading: [
+      subHeading:
         "In HTML, a <p> tag is used to define a paragraph. It is a block-level element that represents a block of text, and it typically adds vertical spacing before and after the content within it.",
-      ],
       propsAccepted: [
         "The Text component expects two props namely text and className. The Text component expects two props namely text and className.",
         "text represents the text you want to display.",
@@ -58,9 +58,8 @@ export default function Homepage() {
     {
       id: 3,
       heading: "Buttons",
-      subHeading: [
-        "A Button element is used to create a clickable button on a web page. Buttons are an essential part of web forms and user interfaces, allowing users to trigger actions or submit forms. ",
-      ],
+      subHeading:
+        "A Button element is used to create a clickable button on a web page. Buttons are an essential part of web forms and user interfaces, allowing users to trigger actions or submit forms.",
       propsAccepted: [
         "The Button component accepts four props namely className, buttonName, onClick function and disabled.",
         "className can be used to provide your own styling.",
@@ -68,6 +67,22 @@ export default function Homepage() {
         "onClick is a function, where you can provide a function which returns a void or nothing.",
       ],
       children: <ButtonSection />,
+    },
+    {
+      id: 4,
+      heading: "Simple Card",
+      subHeading:
+        "Card is a UI component that typically represents a container for content. They can be used to display a variety of content, such as text, images, buttons, and other interactive elements.",
+      children: (
+        <Card
+          cardHeading="Heading"
+          cardBody="Aliquip qui incididunt deserunt ea. Lorem eiusmod commodo cillum magna reprehenderit ad enim commodo dolor eiusmod."
+          cardFooter={[
+            <Button buttonName="Accept" className="secondary" />,
+            <Button buttonName="Deny" className="danger" />,
+          ]}
+        />
+      ),
     },
   ];
 

@@ -1,0 +1,25 @@
+.card {
+  max-width: 39.6rem;
+  /* padding: 0px; */
+}
+
+.card_body {
+  p {
+    text-align: left;
+  }
+}
+
+.card_header {
+  margin-bottom: 1.2rem;
+}
+
+.card_footer {
+  margin-top: 1.2rem;
+
+  display: flex;
+  justify-content: end;
+
+  .card_footer_single_item {
+    margin-left: 1.6rem;
+  }
+}
