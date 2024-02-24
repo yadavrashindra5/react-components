@@ -1,0 +1,20 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input label,
+.input input {
+  font-size: 2rem;
+}
+
+.input label {
+  font-family: poppins-semi-bold;
+  margin-bottom: 0.8rem;
+}
+
+.input input {
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+}

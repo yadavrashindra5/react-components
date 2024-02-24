@@ -9,19 +9,25 @@ interface ICard {
   cardHeading: string;
   cardBody: string;
   cardFooter: React.ReactNode[];
+  breakPoints?: boolean;
 }
 
-export default function Card({ cardHeading, cardBody, cardFooter }: ICard) {
+export default function Card({
+  cardHeading,
+  cardBody,
+  cardFooter,
+  breakPoints = true,
+}: ICard) {
   return (
     <Box className={styles.card}>
       <div className={styles.card_header}>
         <Heading heading="h3" headingText={cardHeading} />
       </div>
-      <hr />
+      {breakPoints && <hr />}
       <div className={styles.card_body}>
         {typeof cardBody === "string" && <Text text={cardBody} />}
       </div>
-      <hr />
+      {breakPoints && <hr />}
       <div className={styles.card_footer}>
         {cardFooter.length <= 1
           ? cardFooter[0]

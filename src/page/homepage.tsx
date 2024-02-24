@@ -2,18 +2,17 @@ import React from "react";
 import Container from "../components/Container/container";
 import Heading, { THeading } from "../components/Heading/heading";
 import Text from "../components/Text/text";
-import ComponentsView from "../sections/componentsView/componentsView";
+import ComponentsView, {
+  IComponentsView,
+} from "../sections/componentsView/componentsView";
 import HeroSection from "../sections/homepage/heroSection";
 import ButtonSection from "../sections/ButtonSection/buttonSection";
 import Card from "../components/Card/card";
 import Button from "../components/Button/button";
+import Input from "../components/Input/input";
 
-type THomePageComponentType = {
+type THomePageComponentType = IComponentsView & {
   id: number;
-  heading: string;
-  subHeading: string | string[];
-  propsAccepted?: string[];
-  children: React.ReactNode;
 };
 
 export default function Homepage() {
@@ -73,16 +72,26 @@ export default function Homepage() {
       heading: "Simple Card",
       subHeading:
         "Card is a UI component that typically represents a container for content. They can be used to display a variety of content, such as text, images, buttons, and other interactive elements.",
-      children: (
+      children: [
         <Card
+          key={1}
           cardHeading="Heading"
           cardBody="Aliquip qui incididunt deserunt ea. Lorem eiusmod commodo cillum magna reprehenderit ad enim commodo dolor eiusmod."
           cardFooter={[
             <Button buttonName="Accept" className="secondary" />,
             <Button buttonName="Deny" className="danger" />,
           ]}
-        />
-      ),
+        />,
+        <Card
+          key={2}
+          cardHeading="Heading"
+          cardBody="Aliquip qui incididunt deserunt ea. Lorem eiusmod commodo cillum magna reprehenderit ad enim commodo dolor eiusmod."
+          cardFooter={[
+            <Button buttonName="Close" className="secondary_danger" />,
+          ]}
+          breakPoints={false}
+        />,
+      ],
     },
   ];
 
@@ -105,6 +114,14 @@ export default function Homepage() {
           );
         })}
       </section>
+      <Input
+        labelId="fullName"
+        inputName="Full Name"
+        pattern="\^[A-Za-z0-9]{3,16}$\"
+        type="string"
+        placeholder="Full Name"
+        required={false}
+      />
     </Container>
   );
 }

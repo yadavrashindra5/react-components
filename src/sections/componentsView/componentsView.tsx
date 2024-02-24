@@ -5,9 +5,9 @@ import Heading from "../../components/Heading/heading";
 import Text from "../../components/Text/text";
 import CodeLists from "../../components/CodeLists/codeLists";
 
-interface IComponentsView {
+export interface IComponentsView {
   heading: string;
-  subHeading: string[];
+  subHeading: string | string[];
   propsAccepted?: string[];
   children?: React.ReactNode;
 }
