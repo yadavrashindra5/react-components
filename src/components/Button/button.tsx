@@ -1,9 +1,10 @@
+import { MouseEventHandler } from "react";
 import styles from "./button.module.css";
 
 export interface IButton {
   className?: string;
   buttonName: string;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
 }
 

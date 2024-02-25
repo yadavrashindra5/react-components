@@ -7,10 +7,9 @@ import ComponentsView, {
 } from "../sections/componentsView/componentsView";
 import HeroSection from "../sections/homepage/heroSection";
 import ButtonSection from "../sections/ButtonSection/buttonSection";
-import Card from "../components/Card/card";
-import Button from "../components/Button/button";
 import Input from "../components/Input/input";
 import CardSection from "../sections/CardSection/cardSection";
+import Accordion from "../components/Accordion/accordion";
 
 type THomePageComponentType = IComponentsView & {
   id: number;
@@ -73,7 +72,14 @@ export default function Homepage() {
       heading: "Simple Card",
       subHeading:
         "Card is a UI component that typically represents a container for content. They can be used to display a variety of content, such as text, images, buttons, and other interactive elements.",
-      propsAccepted: ["", ""],
+      propsAccepted: [
+        "Card component accepts six components namely cardHeading, subtitle, cardBody, cardFooter, breakPoints and className",
+        "cardHeading represents the Heading of the card",
+        "subtitle represents a subtitle which you can provide for your card. It is an optional property.",
+        "cardBody represents the body of the card, it accepts string as of now.",
+        "breakPoints represents whether you need the horizontal line of not. It accepts boolean value.",
+        "className for overriding current styling.",
+      ],
       children: <CardSection />,
     },
   ];
@@ -102,9 +108,14 @@ export default function Homepage() {
         inputName="Full Name"
         pattern="\^[A-Za-z0-9]{3,16}$\"
         type="string"
-        placeholder="Full Name"
+        placeholder="John Doe"
         required={false}
       />
+
+      <Accordion>
+        <Accordion.Header headingText="this is a heading" />
+        <Accordion.Body bodyText="Duis culpa ea aliquip aute duis voluptate nisi veniam deserunt aute consectetur reprehenderit consequat. Culpa dolore mollit excepteur esse cupidatat adipisicing deserunt occaecat voluptate cupidatat qui veniam laborum. Dolore Lorem minim commodo labore. Et non ipsum esse Lorem Lorem aute in magna cupidatat dolor nisi eu et." />
+      </Accordion>
     </Container>
   );
 }

@@ -1,0 +1,35 @@
+.accordion {
+  border: 0.2rem solid #000;
+  border-radius: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.accordion_heading {
+  cursor: pointer;
+  padding: 1.6rem 1.6rem;
+  p {
+    font-size: 3.6rem;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion_icon {
+  transform: rotate(180deg);
+  transition: 0.5s ease-in-out;
+}
+
+.accordion_icon_out {
+  transform: rotate(180deg);
+  transition: 0.5s ease-in-out;
+}
+
+.accordion_body {
+  padding: 0rem 1.6rem;
+}
+
+.accordion_body_animate {
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) ease;
+}
