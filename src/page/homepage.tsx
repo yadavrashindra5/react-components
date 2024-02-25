@@ -10,6 +10,7 @@ import ButtonSection from "../sections/ButtonSection/buttonSection";
 import Card from "../components/Card/card";
 import Button from "../components/Button/button";
 import Input from "../components/Input/input";
+import CardSection from "../sections/CardSection/cardSection";
 
 type THomePageComponentType = IComponentsView & {
   id: number;
@@ -72,26 +73,8 @@ export default function Homepage() {
       heading: "Simple Card",
       subHeading:
         "Card is a UI component that typically represents a container for content. They can be used to display a variety of content, such as text, images, buttons, and other interactive elements.",
-      children: [
-        <Card
-          key={1}
-          cardHeading="Heading"
-          cardBody="Aliquip qui incididunt deserunt ea. Lorem eiusmod commodo cillum magna reprehenderit ad enim commodo dolor eiusmod."
-          cardFooter={[
-            <Button buttonName="Accept" className="secondary" />,
-            <Button buttonName="Deny" className="danger" />,
-          ]}
-        />,
-        <Card
-          key={2}
-          cardHeading="Heading"
-          cardBody="Aliquip qui incididunt deserunt ea. Lorem eiusmod commodo cillum magna reprehenderit ad enim commodo dolor eiusmod."
-          cardFooter={[
-            <Button buttonName="Close" className="secondary_danger" />,
-          ]}
-          breakPoints={false}
-        />,
-      ],
+      propsAccepted: ["", ""],
+      children: <CardSection />,
     },
   ];
 
