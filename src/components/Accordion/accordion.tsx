@@ -4,15 +4,15 @@ import Heading from "../Heading/heading";
 import Text from "../Text/text";
 
 interface IAccordionContext {
-  isOpen: boolean | null;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean | null>>;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleOpen: MouseEventHandler<HTMLDivElement>;
 }
 
 const AccordionContext = React.createContext<IAccordionContext | null>(null);
 
 function Accordion({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState<boolean | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOpen = () => setIsOpen(!isOpen);
 
@@ -35,11 +35,9 @@ function Header({ headingText }: { headingText: string }) {
 
       <img
         className={`${
-          headerConsumer?.isOpen !== null && headerConsumer?.isOpen
+          headerConsumer?.isOpen
             ? styles.accordion_icon
-            : headerConsumer?.isOpen !== null
-            ? styles.accordion_icon_out
-            : ""
+            : styles.accordion_icon_out
         }`}
         height="24px"
         width="24px"
@@ -52,20 +50,15 @@ function Header({ headingText }: { headingText: string }) {
 
 function Body({ bodyText }: { bodyText: string }) {
   const bodyConsumer = useContext(AccordionContext);
+
   return (
     <div
       className={
-        bodyConsumer?.isOpen
-          ? styles.accordion_body_open
-          : styles.accordion_body_close
+        styles.accordion_body + ` ${bodyConsumer?.isOpen ? styles.open : ""}`
       }
     >
-      {bodyConsumer?.isOpen && (
-        <>
-          <hr />
-          <Text text={bodyText} />
-        </>
-      )}
+      <hr />
+      <Text text={bodyText} />
     </div>
   );
 }
