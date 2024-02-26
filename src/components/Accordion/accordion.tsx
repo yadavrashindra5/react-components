@@ -4,15 +4,15 @@ import Heading from "../Heading/heading";
 import Text from "../Text/text";
 
 interface IAccordionContext {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: boolean | null;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean | null>>;
   handleOpen: MouseEventHandler<HTMLDivElement>;
 }
 
 const AccordionContext = React.createContext<IAccordionContext | null>(null);
 
 function Accordion({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean | null>(null);
 
   const handleOpen = () => setIsOpen(!isOpen);
 
@@ -32,7 +32,20 @@ function Header({ headingText }: { headingText: string }) {
       className={styles.accordion_heading}
     >
       <Heading heading="h3" headingText={headingText} />
-      <p>{!headerConsumer?.isOpen ? <span>⬇️</span> : <span>⬆️</span>}</p>
+
+      <img
+        className={`${
+          headerConsumer?.isOpen !== null && headerConsumer?.isOpen
+            ? styles.accordion_icon
+            : headerConsumer?.isOpen !== null
+            ? styles.accordion_icon_out
+            : ""
+        }`}
+        height="24px"
+        width="24px"
+        src="./src/assets/chevron.svg"
+        alt="Down arrow"
+      />
     </div>
   );
 }
@@ -40,15 +53,20 @@ function Header({ headingText }: { headingText: string }) {
 function Body({ bodyText }: { bodyText: string }) {
   const bodyConsumer = useContext(AccordionContext);
   return (
-    bodyConsumer?.isOpen && (
-      <div className={styles.accordion_body_animate}>
-        <hr />
-        <Text
-          className={bodyConsumer?.isOpen && `${styles.accordion_body}`}
-          text={bodyText}
-        />
-      </div>
-    )
+    <div
+      className={
+        bodyConsumer?.isOpen
+          ? styles.accordion_body_open
+          : styles.accordion_body_close
+      }
+    >
+      {bodyConsumer?.isOpen && (
+        <>
+          <hr />
+          <Text text={bodyText} />
+        </>
+      )}
+    </div>
   );
 }
 

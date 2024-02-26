@@ -10,6 +10,7 @@ import ButtonSection from "../sections/ButtonSection/buttonSection";
 import Input from "../components/Input/input";
 import CardSection from "../sections/CardSection/cardSection";
 import Accordion from "../components/Accordion/accordion";
+import { accordionData } from "../helper/accordionData";
 
 type THomePageComponentType = IComponentsView & {
   id: number;
@@ -82,6 +83,23 @@ export default function Homepage() {
       ],
       children: <CardSection />,
     },
+    {
+      id: 5,
+      heading: "Accordion",
+      subHeading:
+        "An accordion component is a user interface (UI) element designed to organize and display content in a collapsible and expandable manner, allowing users to interact with different sections of information.",
+      propsAccepted: [
+        "Accordion Component follow Compound Component Pattern. When initializing Accordion, we need to use Accordion.Header and Accordion.Body else we cannot use Accordion.",
+        "Accordion.Header accepts headerText of string type.",
+        "Accordion.Body accepts bodyText of string type.",
+      ],
+      children: accordionData.map((accordion) => (
+        <Accordion key={accordion.id}>
+          <Accordion.Header headingText={accordion.header} />
+          <Accordion.Body bodyText={accordion.body} />
+        </Accordion>
+      )),
+    },
   ];
 
   return (
@@ -111,11 +129,6 @@ export default function Homepage() {
         placeholder="John Doe"
         required={false}
       />
-
-      <Accordion>
-        <Accordion.Header headingText="this is a heading" />
-        <Accordion.Body bodyText="Duis culpa ea aliquip aute duis voluptate nisi veniam deserunt aute consectetur reprehenderit consequat. Culpa dolore mollit excepteur esse cupidatat adipisicing deserunt occaecat voluptate cupidatat qui veniam laborum. Dolore Lorem minim commodo labore. Et non ipsum esse Lorem Lorem aute in magna cupidatat dolor nisi eu et." />
-      </Accordion>
     </Container>
   );
 }

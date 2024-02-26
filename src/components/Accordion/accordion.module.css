@@ -2,34 +2,79 @@
   border: 0.2rem solid #000;
   border-radius: 1.2rem;
   margin-bottom: 1.2rem;
+  height: auto;
+  animation: height 0.5s ease;
 }
 
 .accordion_heading {
   cursor: pointer;
   padding: 1.6rem 1.6rem;
-  p {
-    font-size: 3.6rem;
-  }
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  p {
+    font-size: 3.6rem;
+  }
 }
 
 .accordion_icon {
-  transform: rotate(180deg);
-  transition: 0.5s ease-in-out;
+  /* transform: rotate(180deg); */
+  /* transition: all 0.5s ease-in-out; */
+  animation: accordionAnimation 0.5s forwards;
 }
 
 .accordion_icon_out {
-  transform: rotate(180deg);
-  transition: 0.5s ease-in-out;
+  /* transform: rotate(180deg);
+  transition-delay: 0.2s; */
+  animation: accordionAnimationOut 0.5s forwards;
 }
 
-.accordion_body {
+.accordion_body_open {
+  height: auto;
   padding: 0rem 1.6rem;
+  animation: accordionBodyOpen 0.5s forwards;
 }
 
-.accordion_body_animate {
-  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) ease;
+.accordion_body_close {
+  animation: accordionBodyClose 0.5s forwards;
+}
+
+@keyframes accordionAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes accordionAnimationOut {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes accordionBodyOpen {
+  0% {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes accordionBodyClose {
+  0% {
+    transform: rotate(0%);
+  }
+  100% {
+    transform: rotate(-25%);
+  }
 }

@@ -130,6 +130,10 @@ h6 {
   font-family: poppins-regular;
 }
 
+hr {
+  border: 0.1rem solid #000;
+}
+
 .primary {
   background-color: var(--primary-button-color);
 }
