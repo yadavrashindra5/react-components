@@ -18,3 +18,9 @@
   padding: 1.6rem;
   border-radius: 1.2rem;
 }
+
+.input input:invalid[class="focussed_input"] {
+  border: 0.2rem solid var(--danger-color);
+}
+
+

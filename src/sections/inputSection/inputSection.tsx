@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import styles from "./inputSection.module.css"
+import styles from "./inputSection.module.css";
 
 import Input, { IInput } from "../../components/Input/input";
 import Heading from "../../components/Heading/heading";
@@ -77,7 +77,7 @@ export default function InputSection() {
             />
           );
         })}
-        <Button buttonName="Submit" className="secondary" />
+        <Button type="submit" buttonName="Submit" className="secondary" />
       </form>
     </Box>
   );
@@ -96,6 +96,8 @@ const HOCInput = (props: HOCInput) => {
     errorMessage,
   } = props;
 
+  const [focus, setFocus] = useState<boolean>(false);
+
   return (
     <div className={styles.hoc_input}>
       <Input
@@ -107,11 +109,11 @@ const HOCInput = (props: HOCInput) => {
         type={type}
         required={required}
         value={value}
+        focus={focus}
         onChange={onChange}
+        onBlur={() => setFocus(true)}
       />
-      <p className={styles.errorMessage}>
-        <span>{errorMessage}</span>
-      </p>
+      {focus && <p className={styles.errorMessage}>{errorMessage}</p>}
     </div>
   );
 };

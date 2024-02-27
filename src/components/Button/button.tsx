@@ -6,6 +6,7 @@ export interface IButton {
   buttonName: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
+  type?: "button" | "submit";
 }
 
 export default function Button({
@@ -13,10 +14,11 @@ export default function Button({
   buttonName,
   onClick,
   disabled = false,
+  type = "button",
 }: IButton) {
   return (
     <button
-      type="button"
+      type={type}
       className={`${styles.button} ${className}`}
       onClick={onClick}
       disabled={disabled}

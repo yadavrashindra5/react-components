@@ -8,8 +8,6 @@ form > hr {
 
 .errorMessage {
   color: var(--danger-color);
-  font-size: 2.6rem;
-}
-
-.error_input_style {
+  font-size: 1.8rem;
+  margin-top: 0.4rem;
 }
