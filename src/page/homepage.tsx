@@ -13,6 +13,7 @@ import Accordion from "../components/Accordion/accordion";
 import { accordionData } from "../helper/accordionData";
 import Alerts from "../components/Alerts/alerts";
 import AlertSection from "../sections/alertSection/alertSection";
+import InputSection from "../sections/inputSection/inputSection";
 
 type THomePageComponentType = IComponentsView & {
   id: number;
@@ -134,15 +135,7 @@ export default function Homepage() {
           );
         })}
       </section>
-      <Input
-        labelId="fullName"
-        inputName="Full Name"
-        pattern="\^[A-Za-z0-9]{3,16}$\"
-        type="string"
-        placeholder="John Doe"
-        required={false}
-      />
-      <Alerts alertBody="This is a sample alert body." />
+      <InputSection />
     </Container>
   );
 }

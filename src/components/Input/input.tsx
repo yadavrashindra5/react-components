@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 import styles from "./input.module.css";
 
-interface IInput {
+export interface IInput {
   labelId: string;
   inputName: string;
   placeholder: string;
@@ -10,6 +10,7 @@ interface IInput {
   required: boolean;
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
 }
 
 export default function Input({
@@ -19,9 +20,10 @@ export default function Input({
   placeholder = "",
   type,
   required,
+  className,
 }: IInput) {
   return (
-    <div className={styles.input}>
+    <div className={styles.input + " " + className}>
       <label htmlFor={labelId}>{inputName}</label>
       <input
         id={labelId}
