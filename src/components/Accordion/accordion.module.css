@@ -27,7 +27,7 @@
 }
 
 .accordion_body.open {
-  max-height: 20rem;
+  max-height: 30rem;
 }
 
 .accordion_icon {
