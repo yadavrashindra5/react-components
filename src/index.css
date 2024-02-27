@@ -134,14 +134,36 @@ hr {
   border: 0.1rem solid #000;
 }
 
+.primary_color {
+  background-color: var(--primary-color);
+}
+
+.secondary_color {
+  background-color: var(--secondary-color);
+}
+
+.tertiary_color {
+  background-color: var(--tertiary-color);
+}
+
+.danger_color {
+  background-color: var(--danger-color);
+}
+
+.default_color {
+  background-color: var(--default-color);
+}
+
 .primary {
   background-color: var(--primary-button-color);
 }
+
 .primary:hover {
   box-shadow: 6px 6px 2px 1px #0079ff60;
   background-color: var(--primary-button-color-on-hover);
   color: #fff;
 }
+
 .secondary {
   background-color: var(--secondary-button-color);
 }

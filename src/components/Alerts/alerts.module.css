@@ -1,0 +1,10 @@
+.alerts {
+  border: 0.2rem solid;
+  border-left: 0.6rem solid;
+  border-right: 0.6rem solid;
+  background-color: #b0b0b080;
+}
+
+.alerts p {
+  font-size: 2rem;
+}

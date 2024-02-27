@@ -11,6 +11,8 @@ import Input from "../components/Input/input";
 import CardSection from "../sections/CardSection/cardSection";
 import Accordion from "../components/Accordion/accordion";
 import { accordionData } from "../helper/accordionData";
+import Alerts from "../components/Alerts/alerts";
+import AlertSection from "../sections/alertSection/alertSection";
 
 type THomePageComponentType = IComponentsView & {
   id: number;
@@ -100,6 +102,17 @@ export default function Homepage() {
         </Accordion>
       )),
     },
+    {
+      id: 6,
+      heading: "Alerts",
+      subHeading:
+        "An alert component is a graphical element designed to convey important information or notify users about specific events within a web or application interface.",
+      propsAccepted: [
+        "The alerts component accepts two props namely className and alertBody",
+        "alertBody is the body of the alert.",
+      ],
+      children: <AlertSection />,
+    },
   ];
 
   return (
@@ -129,6 +142,7 @@ export default function Homepage() {
         placeholder="John Doe"
         required={false}
       />
+      <Alerts alertBody="This is a sample alert body." />
     </Container>
   );
 }
