@@ -1,0 +1,32 @@
+.hero_section {
+  margin: 6.4rem 0;
+}
+
+.hero_section hr {
+  margin: 6.4rem 0 2.4rem 0;
+}
+
+.hero_section h3 {
+  margin-bottom: 2rem;
+}
+
+.hero_section ul {
+  list-style: none;
+  li {
+    margin-bottom: 1.2rem;
+  }
+
+  li a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #808080;
+  }
+  
+  li span {
+    font-size: 2rem;
+  }
+
+  li span:hover {
+    text-decoration: underline;
+  }
+}

@@ -31,7 +31,7 @@ export default function Navbar() {
           <Heading
             className={styles.heading}
             heading="h1"
-            headingText=" ✌️ Shady Fluent Library"
+            headingText="🍭 Poppins Library"
             fontSize="32px"
           />
           <ul>
