@@ -19,7 +19,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`${styles.button} ${className}`}
+      className={styles.button + " " + className}
       onClick={onClick}
       disabled={disabled}
     >

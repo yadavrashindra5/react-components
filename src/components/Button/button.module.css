@@ -5,6 +5,7 @@
   cursor: pointer;
   font-family: poppins-semi-bold;
   background-color: #fff;
+  border: 0.2rem solid #000;
 }
 
 .button:hover {

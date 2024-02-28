@@ -7,7 +7,7 @@ import Heading from "../../components/Heading/heading";
 import Button from "../../components/Button/button";
 import Box from "../../components/Box/box";
 
-interface HOCInput extends IInput {
+interface ErrorHandlingInput extends IInput {
   id?: number;
   errorMessage: string;
 }
@@ -23,7 +23,7 @@ export default function InputSection() {
     password: "",
   });
 
-  const sampleInput: HOCInput[] = [
+  const sampleInput: ErrorHandlingInput[] = [
     {
       id: 1,
       labelId: "email",
@@ -63,7 +63,7 @@ export default function InputSection() {
         <hr />
         {sampleInput.map((input) => {
           return (
-            <HOCInput
+            <ErrorHandlingInput
               key={input.id}
               labelId={input.labelId}
               inputName={input.inputName}
@@ -83,7 +83,7 @@ export default function InputSection() {
   );
 }
 
-const HOCInput = (props: HOCInput) => {
+const ErrorHandlingInput = (props: ErrorHandlingInput) => {
   const {
     labelId,
     inputName,
@@ -101,7 +101,6 @@ const HOCInput = (props: HOCInput) => {
   return (
     <div className={styles.hoc_input}>
       <Input
-        className={styles.error_input_style}
         labelId={labelId}
         inputName={inputName}
         placeholder={placeholder}
@@ -112,8 +111,8 @@ const HOCInput = (props: HOCInput) => {
         focus={focus}
         onChange={onChange}
         onBlur={() => setFocus(true)}
+        errorMessage={errorMessage}
       />
-      {focus && <p className={styles.errorMessage}>{errorMessage}</p>}
     </div>
   );
 };

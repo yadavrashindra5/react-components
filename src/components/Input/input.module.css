@@ -19,8 +19,17 @@
   border-radius: 1.2rem;
 }
 
+.input p {
+  color: var(--danger-color);
+  font-size: 1.8rem;
+  margin-top: 0.4rem;
+  display: none;
+}
+
 .input input:invalid[class="focussed_input"] {
   border: 0.2rem solid var(--danger-color);
 }
 
-
+.input input:invalid[class="focussed_input"] ~ p {
+  display: block;
+}

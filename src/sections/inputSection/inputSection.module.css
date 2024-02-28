@@ -6,8 +6,5 @@ form > hr {
   margin-bottom: 1.6rem;
 }
 
-.errorMessage {
-  color: var(--danger-color);
-  font-size: 1.8rem;
-  margin-top: 0.4rem;
-}
+
+

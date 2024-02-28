@@ -17,3 +17,14 @@
 ### Disclaimer
 
 - This is a project for learning purpose. So do not take this as a solution to every requirement.
+
+## TO-DO
+
+- [] Create a modal Component.
+- [] Create a Card Component with images.
+- [] Create a horizontal card Component.
+- [] Create a Table Component.
+- [] Create a Dragabble Table Component.
+- [] Create a Dragabble Component.
+- [] Create a Carousel Component.
+- [] Create a Carousel Component in a card.

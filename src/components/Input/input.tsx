@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { ChangeEvent } from "react";
 import styles from "./input.module.css";
 
 export interface IInput {
@@ -13,6 +13,7 @@ export interface IInput {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: () => void;
+  errorMessage?: string;
   className?: string;
 }
 
@@ -25,10 +26,11 @@ export default function Input({
   required,
   value,
   focus,
+  errorMessage,
   onChange,
   onBlur,
   onFocus,
-  className,
+  className = "",
 }: IInput) {
   return (
     <div className={styles.input + " " + className}>
@@ -46,6 +48,7 @@ export default function Input({
         onBlur={onBlur}
         onFocus={onFocus}
       />
+      <p>{errorMessage}</p>
     </div>
   );
 }
