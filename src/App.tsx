@@ -15,6 +15,7 @@ import Accordion from "./components/Accordion/accordion";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
+  const styleArr = ["", "primary", "secondary", "tertiary", "danger"];
 
   const appRoutes = [
     {

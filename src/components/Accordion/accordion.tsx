@@ -4,15 +4,15 @@ import Heading from "../Heading/heading";
 import Text from "../Text/text";
 
 interface IAccordionContext {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: boolean | null;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean | null>>;
   handleOpen: MouseEventHandler<HTMLDivElement>;
 }
 
 const AccordionContext = React.createContext<IAccordionContext | null>(null);
 
 function Accordion({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean | null>(null);
 
   const handleOpen = () => setIsOpen(!isOpen);
 
@@ -37,7 +37,9 @@ function Header({ headingText }: { headingText: string }) {
         className={`${
           headerConsumer?.isOpen
             ? styles.accordion_icon
-            : styles.accordion_icon_out
+            : headerConsumer?.isOpen !== null
+            ? styles.accordion_icon_out
+            : ""
         }`}
         height="24px"
         width="24px"

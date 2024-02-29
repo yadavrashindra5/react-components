@@ -4,20 +4,58 @@ import Heading from "../../components/Heading/heading";
 import Text from "../../components/Text/text";
 import { Link } from "react-router-dom";
 
-interface ILinkString {
+type TLinkString = {
+  icon: {
+    imagePath: string;
+    alt: string;
+  };
   path: string;
   name: string;
-}
+};
 
 export default function HeroSection() {
-  const linkString: ILinkString[] = [
-    { path: "/heading", name: "Heading" },
-    { path: "/paragraph", name: "Paragraph" },
-    { path: "/buttons", name: "Buttons" },
-    { path: "/simple-card", name: "Simple Card" },
-    { path: "/accordion", name: "Accordion" },
-    { path: "/alerts", name: "Alerts" },
-    { path: "/input", name: "Simple Input" },
+  const linkString: TLinkString[] = [
+    {
+      icon: {
+        imagePath: "./src/assets/heading-square.svg",
+        alt: "Heading",
+      },
+      path: "/heading",
+      name: "Heading",
+    },
+    {
+      icon: {
+        imagePath: "./src/assets/type-square.svg",
+        alt: "Paragraph",
+      },
+      path: "/paragraph",
+      name: "Paragraph",
+    },
+    {
+      icon: { imagePath: "./src/assets/button-square.svg", alt: "" },
+      path: "/buttons",
+      name: "Buttons",
+    },
+    {
+      icon: { imagePath: "./src/assets/card.svg", alt: "Card" },
+      path: "/simple-card",
+      name: "Simple Card",
+    },
+    {
+      icon: { imagePath: "./src/assets/chevron.svg", alt: "Accordion" },
+      path: "/accordion",
+      name: "Accordion",
+    },
+    {
+      icon: { imagePath: "./src/assets/alert-circle.svg", alt: "Alert icon" },
+      path: "/alerts",
+      name: "Alerts",
+    },
+    {
+      icon: { imagePath: "./src/assets/text-input.svg", alt: "Text input" },
+      path: "/input",
+      name: "Simple Input",
+    },
   ];
 
   return (
@@ -35,7 +73,13 @@ export default function HeroSection() {
           return (
             <li>
               <Link to={linkStr.path}>
-                🔗 <span>{linkStr.name}</span>
+                <img
+                  height="20px"
+                  width="20px"
+                  src={linkStr.icon.imagePath}
+                  alt={linkStr.icon.alt}
+                />
+                <p>{linkStr.name}</p>
               </Link>
             </li>
           );

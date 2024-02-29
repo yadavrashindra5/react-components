@@ -20,13 +20,20 @@
     text-decoration: none;
     font-size: 2rem;
     color: #808080;
+
+    display: inline-flex;
+    align-items: center;
   }
-  
-  li span {
+
+  li img {
+    margin-right: 1.2rem;
+  }
+
+  li a p {
     font-size: 2rem;
   }
 
-  li span:hover {
+  li a p:hover {
     text-decoration: underline;
   }
 }
