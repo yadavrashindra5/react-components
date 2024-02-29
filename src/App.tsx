@@ -12,10 +12,10 @@ import { ComponentsView } from "./sections/componentsView/componentsView";
 import Text from "./components/Text/text";
 import { accordionData } from "./helper/accordionData";
 import Accordion from "./components/Accordion/accordion";
+import Carousel from "./components/Carousel/carousel";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
-  const styleArr = ["", "primary", "secondary", "tertiary", "danger"];
 
   const appRoutes = [
     {
@@ -187,6 +187,7 @@ function App() {
           ))}
         </Routes>
       </Router>
+      <Carousel />
     </Container>
   );
 }

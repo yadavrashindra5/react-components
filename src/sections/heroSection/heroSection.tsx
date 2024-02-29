@@ -5,6 +5,7 @@ import Text from "../../components/Text/text";
 import { Link } from "react-router-dom";
 
 type TLinkString = {
+  id: number;
   icon: {
     imagePath: string;
     alt: string;
@@ -16,6 +17,7 @@ type TLinkString = {
 export default function HeroSection() {
   const linkString: TLinkString[] = [
     {
+      id: 1,
       icon: {
         imagePath: "./src/assets/heading-square.svg",
         alt: "Heading",
@@ -24,6 +26,7 @@ export default function HeroSection() {
       name: "Heading",
     },
     {
+      id: 2,
       icon: {
         imagePath: "./src/assets/type-square.svg",
         alt: "Paragraph",
@@ -32,26 +35,31 @@ export default function HeroSection() {
       name: "Paragraph",
     },
     {
+      id: 3,
       icon: { imagePath: "./src/assets/button-square.svg", alt: "" },
       path: "/buttons",
       name: "Buttons",
     },
     {
+      id: 4,
       icon: { imagePath: "./src/assets/card.svg", alt: "Card" },
       path: "/simple-card",
       name: "Simple Card",
     },
     {
+      id: 5,
       icon: { imagePath: "./src/assets/chevron.svg", alt: "Accordion" },
       path: "/accordion",
       name: "Accordion",
     },
     {
+      id: 6,
       icon: { imagePath: "./src/assets/alert-circle.svg", alt: "Alert icon" },
       path: "/alerts",
       name: "Alerts",
     },
     {
+      id: 7,
       icon: { imagePath: "./src/assets/text-input.svg", alt: "Text input" },
       path: "/input",
       name: "Simple Input",
@@ -71,7 +79,7 @@ export default function HeroSection() {
       <ul>
         {linkString.map((linkStr) => {
           return (
-            <li>
+            <li key={linkStr.id}>
               <Link to={linkStr.path}>
                 <img
                   height="20px"
