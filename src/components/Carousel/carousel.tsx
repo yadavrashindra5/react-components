@@ -80,6 +80,7 @@ export default function Carousel() {
       {imageArr.map((img) => (
         <img
           className={styles.carousel_item}
+          loading={value === 0 ? "eager" : "lazy"}
           key={img.id}
           height={"auto"}
           width={"auto"}

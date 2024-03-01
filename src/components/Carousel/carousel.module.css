@@ -5,7 +5,8 @@
   overflow: hidden;
   border-radius: 2.4rem;
   position: relative;
-  box-shadow: 0.8rem 0.8rem grey;
+  box-shadow: 20px 20px 0px 0px rgba(255, 150, 100),
+    -20px -20px 0px 0px rgba(255, 150, 50);
   margin-bottom: 12rem;
 
   button {
