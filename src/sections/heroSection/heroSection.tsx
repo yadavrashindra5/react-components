@@ -64,6 +64,15 @@ export default function HeroSection() {
       path: "/input",
       name: "Simple Input",
     },
+    {
+      id: 8,
+      icon: {
+        imagePath: "",
+        alt: "",
+      },
+      path: "/carousel",
+      name: "Carousel",
+    },
   ];
 
   return (

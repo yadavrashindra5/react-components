@@ -297,3 +297,17 @@ hr {
 .tertiary_danger:hover {
   color: var(--danger-button-color);
 }
+
+.carousel_item {
+  display: flex;
+  object-fit: cover;
+  max-width: 100%;
+  aspect-ratio: 16/10;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel_item:hover {
+  transform: scale(1.1);
+}

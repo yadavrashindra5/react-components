@@ -4,6 +4,7 @@
 - Always look for inspiration and try to replicate it.
 - Trying to replicate the [Microsoft Fluent Design 2](https://www.figma.com/community/file/836828295772957889/microsoft-fluent-2-web?searchSessionId=lst65xjp-49ddtmjcjon)
 - [Microsoft Fluent UI Website](https://develop.fluentui.dev/components/web/react)
+- Adding the [font design system](<https://www.figma.com/file/YTobzaAMpN3ZfS3x0oQe3c/%E2%9D%96-Untitled-UI-Icons-%E2%80%93-1%2C100%2B-essential-Figma-icons-(Community)?type=design&node-id=181-128951&mode=design&t=KFbOKoHJpX6wLNTe-0>)
 
 ## Aim
 

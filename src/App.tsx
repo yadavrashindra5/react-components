@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/navbar";
 import Homepage from "./page/homepage";
-import "./App.css";
 import ButtonSection from "./sections/ButtonSection/buttonSection";
 import CardSection from "./sections/CardSection/cardSection";
 import AlertSection from "./sections/alertSection/alertSection";
@@ -12,7 +11,7 @@ import { ComponentsView } from "./sections/componentsView/componentsView";
 import Text from "./components/Text/text";
 import { accordionData } from "./helper/accordionData";
 import Accordion from "./components/Accordion/accordion";
-import Carousel from "./components/Carousel/carousel";
+import CarouselSection from "./sections/carouselSection/CarouselSection";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -170,6 +169,23 @@ function App() {
         />
       ),
     },
+    {
+      id: 9,
+      path: "/carousel",
+      element: (
+        <ComponentsView
+          heading="Carousel"
+          subHeading="A carousel is a user interface (UI) component commonly used in web and mobile applications to display a series of images or content items in a rotating or sliding manner. It is often used to showcase multiple pieces of information or visual content in a confined space, allowing users to cycle through them one at a time."
+          propsAccepted={[
+            "Carousel component follows compound component pattern. We have Carousel, Carousel.Button and Carousel.Body components here.",
+            "Carousel accepts loop, itemListLength, className and children.",
+            "Carousel.Body accepts className and children.",
+            "Carousel.Button accepts isNext, a boolean, if true, it represents the next slide button else it will represent previous button.",
+          ]}
+          children={<CarouselSection />}
+        />
+      ),
+    },
   ];
 
   return (
@@ -187,7 +203,6 @@ function App() {
           ))}
         </Routes>
       </Router>
-      <Carousel />
     </Container>
   );
 }

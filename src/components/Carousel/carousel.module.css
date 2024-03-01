@@ -1,13 +1,13 @@
 .carousel {
-  max-width: 96rem;
-
-  display: flex;
+  margin: 0 auto;
+  max-width: 90rem;
   overflow: hidden;
   border-radius: 2.4rem;
   position: relative;
-  box-shadow: 20px 20px 0px 0px rgba(255, 150, 100),
-    -20px -20px 0px 0px rgba(255, 150, 50);
-  margin-bottom: 12rem;
+  box-shadow: 20px 20px 0px 0px rgb(255, 150, 0),
+    -20px -20px 0px 0px rgb(255, 100, 0);
+
+  display: flex;
 
   button {
     position: absolute;
@@ -42,30 +42,22 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
+  .carousel_item_div {
+    display: flex;
+    transition: translate 0.3s ease-in-out;
+  }
+
   .carousel_item {
-    display: block;
+    display: flex;
+    object-fit: cover;
     max-width: 100%;
     aspect-ratio: 16/10;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out, translate 0.3s ease-in-out;
     flex-shrink: 0;
     flex-grow: 0;
+    transition: transform 0.3s ease-in-out;
   }
 
   .carousel_item:hover {
     transform: scale(1.1);
-  }
-}
-
-@keyframes carousel_item_animate {
-  0% {
-    opacity: 1;
-    transform: translateY(0%);
-    /* transition: transform 0.3s; */
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(100%);
   }
 }
