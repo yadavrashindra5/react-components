@@ -72,7 +72,8 @@
   }
 }
 
-.solar_system {
+.solar_system,
+.solar_system_using_component {
   margin-bottom: 2rem;
   overflow: scroll;
 
@@ -90,6 +91,7 @@
   }
 
   th {
+    text-transform: capitalize;
     font-size: 1.8rem;
     background-color: rgb(235, 235, 235);
   }

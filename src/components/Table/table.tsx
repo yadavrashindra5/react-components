@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./table.module.css";
 import { planetData } from "./TableData";
+import Heading from "../Heading/heading";
 
 export default function Table() {
   return (
@@ -274,8 +275,8 @@ export default function Table() {
           </tbody>
         </table>
       </div> */}
-      <h1>This is using simple html tags.</h1>
 
+      <Heading heading="h1" headingText="This is using simple html tags." />
       <div className={styles.solar_system}>
         <table>
           <caption>
@@ -491,11 +492,34 @@ export default function Table() {
         </table>
       </div>
 
-      <h1>This is using React components</h1>
+      <Heading heading="h1" headingText="This is using React components" />
 
       <div className={styles.solar_system_using_component}>
         <RootTable caption={planetData.planetary_system.caption}>
-
+          <RootTable.TableColGroup>
+            <RootTable.TableCol hasValue={true} hasStyle={false} value={2} />
+            <RootTable.TableCol
+              hasValue={false}
+              hasStyle={true}
+              style={{ border: "0.2rem solid #000" }}
+            />
+            <RootTable.TableCol hasValue={true} hasStyle={false} value={9} />
+          </RootTable.TableColGroup>
+          <RootTable.TableHead>
+            <RootTable.TableRow>
+              <RootTable.TableBodyData isTableHeading={true} colspan={2} />
+              {Object.keys(
+                planetData.planetary_system.terrestrial_planets[0]
+              ).map((val, ind) => (
+                <RootTable.TableBodyData
+                  key={ind}
+                  isTableHeading={true}
+                  scope="col"
+                  tableHeading={val.split("_").join(" ")}
+                />
+              ))}
+            </RootTable.TableRow>
+          </RootTable.TableHead>
         </RootTable>
       </div>
     </>
@@ -514,14 +538,32 @@ function RootTable({ caption, children }: IRootTable) {
     <RootTableContext.Provider value={null}>
       <table>
         <caption>{caption}</caption>
-        <colgroup>
-          <col />
-          <col />
-          <col />
-        </colgroup>
         {children}
       </table>
     </RootTableContext.Provider>
+  );
+}
+
+interface ITableCol {
+  hasStyle: boolean;
+  style: Object;
+  hasValue: boolean;
+  value: number;
+}
+
+function TableColGroup({ children }: { children: React.ReactNode }) {
+  return <colgroup>{children}</colgroup>;
+}
+
+function TableCol({ value, style, hasValue, hasStyle }: Partial<ITableCol>) {
+  return hasStyle && hasValue ? (
+    <col span={value} style={style} />
+  ) : hasStyle && !hasValue ? (
+    <col style={style} />
+  ) : hasValue && !hasValue ? (
+    <col span={value} />
+  ) : (
+    <col />
   );
 }
 
@@ -542,22 +584,30 @@ function TableFooter({ children }: { children: React.ReactNode }) {
 }
 
 function TableBodyData({
-  isTableHeader = false,
-  isRowGroup = false,
+  scope,
   tableHeading,
+  isTableHeading,
+  colspan,
+  rowspan,
 }: {
-  isTableHeader: boolean;
-  isRowGroup: boolean;
-  tableHeading: string | number;
+  scope?: "rowgroup" | "row" | "colgroup" | "col";
+  tableHeading?: string | number;
+  isTableHeading: boolean;
+  colspan?: number;
+  rowspan?: number;
 }) {
-  return isTableHeader ? (
-    <th scope={isRowGroup ? "rowgroup" : "row"}>{tableHeading}</th>
+  return isTableHeading ? (
+    <th colSpan={colspan} rowSpan={rowspan} scope={scope}>
+      {tableHeading}
+    </th>
   ) : (
     <td>{tableHeading}</td>
   );
 }
 
 RootTable.TableRow = TableRow;
+RootTable.TableColGroup = TableColGroup;
+RootTable.TableCol = TableCol;
 RootTable.TableHead = TableHead;
 RootTable.TableBody = TableBody;
 RootTable.TableFooter = TableFooter;
