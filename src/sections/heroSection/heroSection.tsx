@@ -67,8 +67,8 @@ export default function HeroSection() {
     {
       id: 8,
       icon: {
-        imagePath: "",
-        alt: "",
+        imagePath: "./src/assets/carousel-icon.svg",
+        alt: "Carousel",
       },
       path: "/carousel",
       name: "Carousel",
