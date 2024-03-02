@@ -75,7 +75,7 @@
 .solar_system {
   margin-bottom: 2rem;
   overflow: scroll;
-  
+
   table {
     border-collapse: collapse;
     border: 2px solid rgb(200, 200, 200);
@@ -90,29 +90,38 @@
   }
 
   th {
-    /* font-size: 3.2rem; */
+    font-size: 1.8rem;
     background-color: rgb(235, 235, 235);
   }
 
   td {
+    font-size: 1.8rem;
     text-align: center;
+
+    a {
+      font-size: 1.8rem;
+    }
   }
 
   tr:nth-child(even) td {
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(250, 120, 250);
   }
 
   tr:nth-child(odd) td {
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(120, 245, 245);
   }
 
   caption {
+    font-size: 1.6rem;
     padding: 10px;
+    a {
+      font-size: 1.6rem;
+    }
   }
 
   tbody {
     font-size: 3.2rem;
-    font-style: italic;
+    /* font-style: italic; */
   }
 
   tfoot {

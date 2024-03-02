@@ -1,9 +1,11 @@
+import React from "react";
 import styles from "./table.module.css";
+import { planetData } from "./TableData";
 
 export default function Table() {
   return (
     <>
-      <div className={styles.dogs}>
+      {/* <div className={styles.dogs}>
         <table className={styles.table}>
           <caption>Table about different breeds of dogs.</caption>
           <colgroup>
@@ -271,7 +273,9 @@ export default function Table() {
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> */}
+      <h1>This is using simple html tags.</h1>
+
       <div className={styles.solar_system}>
         <table>
           <caption>
@@ -286,41 +290,58 @@ export default function Table() {
             ).
           </caption>
           <colgroup>
-            <col />
-            <col />
+            <col span={2} />
             <col style={{ border: "0.2rem solid #000" }} />
+            <col span={9} />
           </colgroup>
           <thead>
             <tr>
               <th colSpan={2}></th>
-              <th>Name</th>
-              <th>
+              <th scope="col" id="name">
+                Name
+              </th>
+              <th scope="col" id="mass">
                 Mass (10<sup>24</sup>kg)
               </th>
-              <th>Diameter (km)</th>
-              <th>
+              <th scope="col" id="diameter">
+                Diameter (km)
+              </th>
+              <th scope="col" id="density">
                 Density (kg/m<sup>3</sup>)
               </th>
-              <th>
+              <th scope="col" id="gravity">
                 Gravity (m/s<sup>2</sup>)
               </th>
-              <th>Length of day (hours)</th>
-              <th>
+              <th scope="col" id="length of the day">
+                Length of day (hours)
+              </th>
+              <th scope="col" id="distance from the sun">
                 Distance from Sun (10<sup>6</sup>km)
               </th>
-              <th>Mean temperature (°C)</th>
-              <th>Number of moons</th>
-              <th>Notes</th>
+              <th scope="col" id="mean temperature">
+                Mean temperature (°C)
+              </th>
+              <th scope="col" id="number of moons">
+                Number of moons
+              </th>
+              <th scope="col" id="notes">
+                Notes
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th rowSpan={5} colSpan={2}>
+              <th
+                scope="rowgroup"
+                id="terrestrial planets"
+                rowSpan={4}
+                colSpan={2}
+              >
                 Terrestrial planets
               </th>
-            </tr>
-            <tr>
-              <th>Mercury</th>
+              <th scope="row" id="mercury" headers="terrestrial planets">
+                Mercury
+              </th>
               <td>0.330</td>
               <td>4,879</td>
               <td>5427</td>
@@ -332,7 +353,9 @@ export default function Table() {
               <td>Closest to the Sun</td>
             </tr>
             <tr>
-              <th>Venus</th>
+              <th scope="row" id="venus" headers="terrestrial planets">
+                Venus
+              </th>
               <td>4.87</td>
               <td>12,104</td>
               <td>5243</td>
@@ -343,7 +366,9 @@ export default function Table() {
               <td>0</td>
             </tr>
             <tr>
-              <th>Earth</th>
+              <th scope="row" id="earth" headers="terrestrial planets">
+                Earth
+              </th>
               <td>5.97</td>
               <td>12,756</td>
               <td>5514</td>
@@ -355,7 +380,9 @@ export default function Table() {
               <td>Our World</td>
             </tr>
             <tr>
-              <th>Mars</th>
+              <th scope="row" id="mars" headers="terrestrial planets">
+                Mars
+              </th>
               <td>0.642</td>
               <td>6,792</td>
               <td>3933</td>
@@ -367,15 +394,21 @@ export default function Table() {
               <td>The Red Planet</td>
             </tr>
             <tr>
-              <th colSpan={1} rowSpan={5}>
+              <th scope="rowgroup" id="jovian planet" colSpan={1} rowSpan={4}>
                 Jovian Planet
               </th>
-            </tr>
-            <tr>
-              <th colSpan={1} rowSpan={2}>
+              <th
+                scope="rowgroup"
+                id="gas giants"
+                headers="jovian planet"
+                colSpan={1}
+                rowSpan={2}
+              >
                 Gas Giants
               </th>
-              <th>Jupiter</th>
+              <th scope="row" id="jupiter" headers="gas giants">
+                Jupiter
+              </th>
               <td>1898</td>
               <td>142,984</td>
               <td>1326</td>
@@ -387,7 +420,9 @@ export default function Table() {
               <td>The Largest Planet</td>
             </tr>
             <tr>
-              <th>Saturn</th>
+              <th scope="row" id="saturn" headers="gas giants">
+                Saturn
+              </th>
               <td>586</td>
               <td>120,536</td>
               <td>687</td>
@@ -396,13 +431,14 @@ export default function Table() {
               <td>1433.5</td>
               <td>-140</td>
               <td>62</td>
-              <td></td>
             </tr>
             <tr>
-              <th colSpan={1} rowSpan={2}>
+              <th scope="rowgroup" id="ice giants" colSpan={1} rowSpan={2}>
                 Ice Giants
               </th>
-              <th>Uranus</th>
+              <th scope="row" id="uranus" headers="ice giants">
+                Uranus
+              </th>
               <td>86.8</td>
               <td>51,118</td>
               <td>1271</td>
@@ -411,10 +447,11 @@ export default function Table() {
               <td>2872.5</td>
               <td>-195</td>
               <td>27</td>
-              <td></td>
             </tr>
             <tr>
-              <th>Neptune</th>
+              <th scope="row" id="neptune" headers="ice giants">
+                Neptune
+              </th>
               <td>102</td>
               <td>49,528</td>
               <td>1638</td>
@@ -423,13 +460,14 @@ export default function Table() {
               <td>4495.1</td>
               <td>-200</td>
               <td>14</td>
-              <td></td>
             </tr>
             <tr>
-              <th rowSpan={1} colSpan={2}>
+              <th scope="row" id="dwarf planets" rowSpan={1} colSpan={2}>
                 Dwarf Planets
               </th>
-              <th>Pluto</th>
+              <th scope="row" id="pluto" headers="dwarf planets">
+                Pluto
+              </th>
               <td>0.0146</td>
               <td>2,370</td>
               <td>2095</td>
@@ -452,6 +490,14 @@ export default function Table() {
           </tbody>
         </table>
       </div>
+
+      <h1>This is using React components</h1>
+
+      <div className={styles.solar_system_using_component}>
+        <RootTable caption={planetData.planetary_system.caption}>
+
+        </RootTable>
+      </div>
     </>
   );
 }
@@ -461,15 +507,58 @@ interface IRootTable {
   children: React.ReactNode;
 }
 
+const RootTableContext = React.createContext(null);
+
 function RootTable({ caption, children }: IRootTable) {
   return (
-    <table>
-      <caption>{caption}</caption>
-      {children}
-    </table>
+    <RootTableContext.Provider value={null}>
+      <table>
+        <caption>{caption}</caption>
+        <colgroup>
+          <col />
+          <col />
+          <col />
+        </colgroup>
+        {children}
+      </table>
+    </RootTableContext.Provider>
   );
 }
 
-function TableHead() {
-  return <thead></thead>;
+function TableRow({ children }: { children: React.ReactNode }) {
+  return <tr>{children}</tr>;
 }
+
+function TableHead({ children }: { children: React.ReactNode }) {
+  return <thead>{children}</thead>;
+}
+
+function TableBody({ children }: { children: React.ReactNode }) {
+  return <tbody>{children}</tbody>;
+}
+
+function TableFooter({ children }: { children: React.ReactNode }) {
+  return <tfoot>{children}</tfoot>;
+}
+
+function TableBodyData({
+  isTableHeader = false,
+  isRowGroup = false,
+  tableHeading,
+}: {
+  isTableHeader: boolean;
+  isRowGroup: boolean;
+  tableHeading: string | number;
+}) {
+  return isTableHeader ? (
+    <th scope={isRowGroup ? "rowgroup" : "row"}>{tableHeading}</th>
+  ) : (
+    <td>{tableHeading}</td>
+  );
+}
+
+RootTable.TableRow = TableRow;
+RootTable.TableHead = TableHead;
+RootTable.TableBody = TableBody;
+RootTable.TableFooter = TableFooter;
+RootTable.TableBodyData = TableBodyData;
