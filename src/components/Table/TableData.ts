@@ -5,7 +5,7 @@ export const planetData = {
     terrestrial_planets: [
       {
         Name: "Mercury",
-        "Mass (10^24kg)": 0.33,
+        "Mass (10^24 kg)": 0.33,
         "Diameter (km)": 4879,
         "Density (kg/m^3)": 5427,
         "Gravity (m/s^2)": 3.7,
@@ -113,8 +113,7 @@ export const planetData = {
         "Distance from Sun (10^6km)": 5906.4,
         "Mean temperature (°C)": -225,
         "Number of moons": 5,
-        Notes:
-          `Declassified as a planet in 2006, but this remains controversial. (Source: http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/)`,
+        Notes: `Declassified as a planet in 2006, but this remains controversial. (Source: http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/)`,
       },
     ],
   },

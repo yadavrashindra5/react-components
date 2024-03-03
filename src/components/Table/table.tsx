@@ -570,18 +570,22 @@ export default function Table() {
                       <>
                         {(ind === 0 && (
                           <>
-                            <RootTable.TableBodyData
-                              isTableHeading={true}
-                              colspan={1}
-                              rowspan={5}
-                              tableHeading={value.split("_").join(" ")}
-                            />
                             {copyOfPlanetarySystem[value][val].map(
                               (v: any, i: number) => {
                                 return (
                                   <RootTable.TableRow>
                                     {(i === 0 && (
                                       <>
+                                        {ind === 0 && (
+                                          <RootTable.TableBodyData
+                                            isTableHeading={true}
+                                            colspan={1}
+                                            rowspan={4}
+                                            tableHeading={value
+                                              .split("_")
+                                              .join(" ")}
+                                          />
+                                        )}
                                         <RootTable.TableBodyData
                                           isTableHeading={true}
                                           colspan={1}
