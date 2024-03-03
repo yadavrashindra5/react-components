@@ -5,21 +5,14 @@ import Heading from "../Heading/heading";
 
 export default function Table() {
   const { planetary_system } = planetData;
-  const { caption, terrestrial_planets, jovian_planets, dwarf_planets } =
-    planetary_system;
+  const { terrestrial_planets } = planetary_system;
 
   const columns = Object.keys(terrestrial_planets[0]);
   let rows = Object.keys(planetary_system);
-  const childRows = Object.keys(jovian_planets);
   rows = rows.slice(1);
 
-  const planetTypeObj = {
-    terrestrial_planets: rows[0],
-    jovian_planets: childRows,
-    dwarf_planets: rows[2],
-  };
-
-  let copyOfPlanetarySystem: any = planetary_system;
+  // deep copy of planetary_system
+  let copyOfPlanetarySystem: any = JSON.parse(JSON.stringify(planetary_system));
 
   delete copyOfPlanetarySystem.caption;
 
@@ -514,7 +507,7 @@ export default function Table() {
       <Heading heading="h1" headingText="This is using React components" />
 
       <div className={styles.solar_system_using_component}>
-        <RootTable caption={caption}>
+        <RootTable caption={planetary_system.caption}>
           <RootTable.TableColGroup>
             <RootTable.TableCol hasValue={true} hasStyle={false} value={2} />
             <RootTable.TableCol
@@ -549,7 +542,7 @@ export default function Table() {
                               isTableHeading={true}
                               colspan={2}
                               rowspan={4}
-                              tableHeading={value}
+                              tableHeading={value.split("_").join(" ")}
                             />
                             {Object.keys(sv).map((svVal) => {
                               return (
@@ -580,10 +573,51 @@ export default function Table() {
                             <RootTable.TableBodyData
                               isTableHeading={true}
                               colspan={1}
-                              rowspan={4}
-                              tableHeading={value}
+                              rowspan={5}
+                              tableHeading={value.split("_").join(" ")}
                             />
-                            {copyOfPlanetarySystem[value][val].map((v, i) => {
+                            {copyOfPlanetarySystem[value][val].map(
+                              (v: any, i: number) => {
+                                return (
+                                  <RootTable.TableRow>
+                                    {(i === 0 && (
+                                      <>
+                                        <RootTable.TableBodyData
+                                          isTableHeading={true}
+                                          colspan={1}
+                                          rowspan={2}
+                                          tableHeading={val
+                                            .split("_")
+                                            .join(" ")}
+                                        />
+                                        {Object.keys(v).map(
+                                          (someVal, someInd) => {
+                                            return (
+                                              <RootTable.TableBodyData
+                                                isTableHeading={false}
+                                                tableHeading={v[someVal]}
+                                              />
+                                            );
+                                          }
+                                        )}
+                                      </>
+                                    )) ||
+                                      Object.keys(v).map((someVal, someInd) => {
+                                        return (
+                                          <RootTable.TableBodyData
+                                            isTableHeading={false}
+                                            tableHeading={v[someVal]}
+                                          />
+                                        );
+                                      })}
+                                  </RootTable.TableRow>
+                                );
+                              }
+                            )}
+                          </>
+                        )) ||
+                          copyOfPlanetarySystem[value][val].map(
+                            (v: any, i: number) => {
                               return (
                                 <RootTable.TableRow>
                                   {(i === 0 && (
@@ -592,7 +626,7 @@ export default function Table() {
                                         isTableHeading={true}
                                         colspan={1}
                                         rowspan={2}
-                                        tableHeading={val}
+                                        tableHeading={val.split("_").join(" ")}
                                       />
                                       {Object.keys(v).map(
                                         (someVal, someInd) => {
@@ -616,41 +650,8 @@ export default function Table() {
                                     })}
                                 </RootTable.TableRow>
                               );
-                            })}
-                          </>
-                        )) ||
-                          copyOfPlanetarySystem[value][val].map((v, i) => {
-                            return (
-                              <RootTable.TableRow>
-                                {(i === 0 && (
-                                  <>
-                                    <RootTable.TableBodyData
-                                      isTableHeading={true}
-                                      colspan={1}
-                                      rowspan={2}
-                                      tableHeading={val}
-                                    />
-                                    {Object.keys(v).map((someVal, someInd) => {
-                                      return (
-                                        <RootTable.TableBodyData
-                                          isTableHeading={false}
-                                          tableHeading={v[someVal]}
-                                        />
-                                      );
-                                    })}
-                                  </>
-                                )) ||
-                                  Object.keys(v).map((someVal, someInd) => {
-                                    return (
-                                      <RootTable.TableBodyData
-                                        isTableHeading={false}
-                                        tableHeading={v[someVal]}
-                                      />
-                                    );
-                                  })}
-                              </RootTable.TableRow>
-                            );
-                          })}
+                            }
+                          )}
                       </>
                     );
                   });
@@ -692,15 +693,15 @@ function TableColGroup({ children }: { children: React.ReactNode }) {
 }
 
 function TableCol({ value, style, hasValue, hasStyle }: Partial<ITableCol>) {
-  return hasStyle && hasValue ? (
-    <col span={value} style={style} />
-  ) : hasStyle && !hasValue ? (
-    <col style={style} />
-  ) : hasValue && !hasValue ? (
-    <col span={value} />
-  ) : (
-    <col />
-  );
+  if (hasStyle && hasValue) {
+    return <col span={value} style={style} />;
+  } else if (hasStyle && !hasValue) {
+    return <col style={style} />;
+  } else if (!hasStyle && hasValue) {
+    return <col span={value} />;
+  } else {
+    return <col />;
+  }
 }
 
 function TableRow({ children }: { children: React.ReactNode }) {
