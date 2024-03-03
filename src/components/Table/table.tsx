@@ -19,6 +19,10 @@ export default function Table() {
     dwarf_planets: rows[2],
   };
 
+  let copyOfPlanetarySystem: any = planetary_system;
+
+  delete copyOfPlanetarySystem.caption;
+
   return (
     <>
       {/* <div className={styles.dogs}>
@@ -534,8 +538,122 @@ export default function Table() {
             </RootTable.TableRow>
           </RootTable.TableHead>
           <RootTable.TableBody>
-            {Object.keys(planetary_system).map((value, index) => {
-              return <div key={index}>{value}</div>;
+            {Object.keys(copyOfPlanetarySystem).map((value) => {
+              return Array.isArray(copyOfPlanetarySystem[value])
+                ? copyOfPlanetarySystem[value].map((sv: any, si: number) => {
+                    return (
+                      <RootTable.TableRow>
+                        {(si === 0 && (
+                          <>
+                            <RootTable.TableBodyData
+                              isTableHeading={true}
+                              colspan={2}
+                              rowspan={4}
+                              tableHeading={value}
+                            />
+                            {Object.keys(sv).map((svVal) => {
+                              return (
+                                <RootTable.TableBodyData
+                                  isTableHeading={false}
+                                  tableHeading={sv[svVal]}
+                                />
+                              );
+                            })}
+                          </>
+                        )) ||
+                          Object.keys(sv).map((svVal) => {
+                            return (
+                              <RootTable.TableBodyData
+                                isTableHeading={false}
+                                tableHeading={sv[svVal]}
+                              />
+                            );
+                          })}
+                      </RootTable.TableRow>
+                    );
+                  })
+                : Object.keys(copyOfPlanetarySystem[value]).map((val, ind) => {
+                    return (
+                      <>
+                        {(ind === 0 && (
+                          <>
+                            <RootTable.TableBodyData
+                              isTableHeading={true}
+                              colspan={1}
+                              rowspan={4}
+                              tableHeading={value}
+                            />
+                            {copyOfPlanetarySystem[value][val].map((v, i) => {
+                              return (
+                                <RootTable.TableRow>
+                                  {(i === 0 && (
+                                    <>
+                                      <RootTable.TableBodyData
+                                        isTableHeading={true}
+                                        colspan={1}
+                                        rowspan={2}
+                                        tableHeading={val}
+                                      />
+                                      {Object.keys(v).map(
+                                        (someVal, someInd) => {
+                                          return (
+                                            <RootTable.TableBodyData
+                                              isTableHeading={false}
+                                              tableHeading={v[someVal]}
+                                            />
+                                          );
+                                        }
+                                      )}
+                                    </>
+                                  )) ||
+                                    Object.keys(v).map((someVal, someInd) => {
+                                      return (
+                                        <RootTable.TableBodyData
+                                          isTableHeading={false}
+                                          tableHeading={v[someVal]}
+                                        />
+                                      );
+                                    })}
+                                </RootTable.TableRow>
+                              );
+                            })}
+                          </>
+                        )) ||
+                          copyOfPlanetarySystem[value][val].map((v, i) => {
+                            return (
+                              <RootTable.TableRow>
+                                {(i === 0 && (
+                                  <>
+                                    <RootTable.TableBodyData
+                                      isTableHeading={true}
+                                      colspan={1}
+                                      rowspan={2}
+                                      tableHeading={val}
+                                    />
+                                    {Object.keys(v).map((someVal, someInd) => {
+                                      return (
+                                        <RootTable.TableBodyData
+                                          isTableHeading={false}
+                                          tableHeading={v[someVal]}
+                                        />
+                                      );
+                                    })}
+                                  </>
+                                )) ||
+                                  Object.keys(v).map((someVal, someInd) => {
+                                    return (
+                                      <RootTable.TableBodyData
+                                        isTableHeading={false}
+                                        tableHeading={v[someVal]}
+                                      />
+                                    );
+                                  })}
+                              </RootTable.TableRow>
+                            );
+                          })}
+                      </>
+                    );
+                  });
             })}
           </RootTable.TableBody>
         </RootTable>
