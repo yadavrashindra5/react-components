@@ -4,6 +4,21 @@ import { planetData } from "./TableData";
 import Heading from "../Heading/heading";
 
 export default function Table() {
+  const { planetary_system } = planetData;
+  const { caption, terrestrial_planets, jovian_planets, dwarf_planets } =
+    planetary_system;
+
+  const columns = Object.keys(terrestrial_planets[0]);
+  let rows = Object.keys(planetary_system);
+  const childRows = Object.keys(jovian_planets);
+  rows = rows.slice(1);
+
+  const planetTypeObj = {
+    terrestrial_planets: rows[0],
+    jovian_planets: childRows,
+    dwarf_planets: rows[2],
+  };
+
   return (
     <>
       {/* <div className={styles.dogs}>
@@ -495,7 +510,7 @@ export default function Table() {
       <Heading heading="h1" headingText="This is using React components" />
 
       <div className={styles.solar_system_using_component}>
-        <RootTable caption={planetData.planetary_system.caption}>
+        <RootTable caption={caption}>
           <RootTable.TableColGroup>
             <RootTable.TableCol hasValue={true} hasStyle={false} value={2} />
             <RootTable.TableCol
@@ -508,9 +523,7 @@ export default function Table() {
           <RootTable.TableHead>
             <RootTable.TableRow>
               <RootTable.TableBodyData isTableHeading={true} colspan={2} />
-              {Object.keys(
-                planetData.planetary_system.terrestrial_planets[0]
-              ).map((val, ind) => (
+              {columns.map((val, ind) => (
                 <RootTable.TableBodyData
                   key={ind}
                   isTableHeading={true}
@@ -520,6 +533,11 @@ export default function Table() {
               ))}
             </RootTable.TableRow>
           </RootTable.TableHead>
+          <RootTable.TableBody>
+            {Object.keys(planetary_system).map((value, index) => {
+              return <div key={index}>{value}</div>;
+            })}
+          </RootTable.TableBody>
         </RootTable>
       </div>
     </>
