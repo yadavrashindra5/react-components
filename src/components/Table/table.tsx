@@ -3,7 +3,7 @@ import styles from "./table.module.css";
 import { planetData } from "./TableData";
 import Heading from "../Heading/heading";
 
-export default function Table() {
+export function Table() {
   const { planetary_system } = planetData;
   const { terrestrial_planets } = planetary_system;
 
@@ -337,9 +337,6 @@ export default function Table() {
               <th scope="col" id="number of moons">
                 Number of moons
               </th>
-              <th scope="col" id="notes">
-                Notes
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -363,7 +360,6 @@ export default function Table() {
               <td>57.9</td>
               <td>167</td>
               <td>0</td>
-              <td>Closest to the Sun</td>
             </tr>
             <tr>
               <th scope="row" id="venus" headers="terrestrial planets">
@@ -390,7 +386,6 @@ export default function Table() {
               <td>149.6</td>
               <td>15</td>
               <td>1</td>
-              <td>Our World</td>
             </tr>
             <tr>
               <th scope="row" id="mars" headers="terrestrial planets">
@@ -404,7 +399,6 @@ export default function Table() {
               <td>229.9</td>
               <td>-65</td>
               <td>2</td>
-              <td>The Red Planet</td>
             </tr>
             <tr>
               <th scope="rowgroup" id="jovian planet" colSpan={1} rowSpan={4}>
@@ -430,7 +424,6 @@ export default function Table() {
               <td>778.6</td>
               <td>-110</td>
               <td>67</td>
-              <td>The Largest Planet</td>
             </tr>
             <tr>
               <th scope="row" id="saturn" headers="gas giants">
@@ -489,16 +482,6 @@ export default function Table() {
               <td>5906.4</td>
               <td>-225</td>
               <td>5</td>
-              <td>
-                Declassified as a planet in 2006, but this{" "}
-                <a
-                  target="_blank"
-                  href="http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/"
-                >
-                  remains controversial
-                </a>
-                .
-              </td>
             </tr>
           </tbody>
         </table>
@@ -728,7 +711,7 @@ interface IRootTable {
 
 const RootTableContext = React.createContext(null);
 
-function RootTable({ caption, children }: IRootTable) {
+export default function RootTable({ caption, children }: IRootTable) {
   return (
     <RootTableContext.Provider value={null}>
       <table>

@@ -311,3 +311,60 @@ hr {
 .carousel_item:hover {
   transform: scale(1.1);
 }
+
+table {
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-size: 3.2rem;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  /* border-collapse: collapse; */
+}
+
+td,
+th {
+  border-radius: 0.4rem;
+  /* border: 2px solid rgb(0, 0, 0); */
+  padding: 10px 20px;
+}
+
+th {
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: #3468c0;
+}
+
+td {
+  font-size: 1.8rem;
+  text-align: center;
+
+  a {
+    font-size: 1.8rem;
+  }
+}
+
+tr:nth-child(even) td {
+  background-color: rgb(230, 230, 230);
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(240, 240, 240);
+}
+
+caption {
+  font-size: 1.6rem;
+  padding: 10px;
+  a {
+    font-size: 1.6rem;
+  }
+}
+
+tbody {
+  font-size: 3.2rem;
+}
+
+tfoot {
+  font-size: 3.2rem;
+  font-weight: bold;
+}
