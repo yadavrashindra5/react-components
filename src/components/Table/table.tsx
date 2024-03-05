@@ -544,22 +544,40 @@ export default function Table() {
                               rowspan={4}
                               tableHeading={value.split("_").join(" ")}
                             />
-                            {Object.keys(sv).map((svVal) => {
+                            {Object.keys(sv).map((svVal, svInd) => {
                               return (
-                                <RootTable.TableBodyData
-                                  isTableHeading={false}
-                                  tableHeading={sv[svVal]}
-                                />
+                                <>
+                                  {(svInd === 0 && (
+                                    <RootTable.TableBodyData
+                                      isTableHeading={true}
+                                      tableHeading={sv[svVal]}
+                                    />
+                                  )) || (
+                                    <RootTable.TableBodyData
+                                      isTableHeading={false}
+                                      tableHeading={sv[svVal]}
+                                    />
+                                  )}
+                                </>
                               );
                             })}
                           </>
                         )) ||
-                          Object.keys(sv).map((svVal) => {
+                          Object.keys(sv).map((svVal, svInd) => {
                             return (
-                              <RootTable.TableBodyData
-                                isTableHeading={false}
-                                tableHeading={sv[svVal]}
-                              />
+                              <>
+                                {(svInd === 0 && (
+                                  <RootTable.TableBodyData
+                                    isTableHeading={true}
+                                    tableHeading={sv[svVal]}
+                                  />
+                                )) || (
+                                  <RootTable.TableBodyData
+                                    isTableHeading={false}
+                                    tableHeading={sv[svVal]}
+                                  />
+                                )}
+                              </>
                             );
                           })}
                       </RootTable.TableRow>
@@ -597,10 +615,19 @@ export default function Table() {
                                         {Object.keys(v).map(
                                           (someVal, someInd) => {
                                             return (
-                                              <RootTable.TableBodyData
-                                                isTableHeading={false}
-                                                tableHeading={v[someVal]}
-                                              />
+                                              <>
+                                                {(someInd === 0 && (
+                                                  <RootTable.TableBodyData
+                                                    isTableHeading={true}
+                                                    tableHeading={v[someVal]}
+                                                  />
+                                                )) || (
+                                                  <RootTable.TableBodyData
+                                                    isTableHeading={false}
+                                                    tableHeading={v[someVal]}
+                                                  />
+                                                )}
+                                              </>
                                             );
                                           }
                                         )}
@@ -608,10 +635,19 @@ export default function Table() {
                                     )) ||
                                       Object.keys(v).map((someVal, someInd) => {
                                         return (
-                                          <RootTable.TableBodyData
-                                            isTableHeading={false}
-                                            tableHeading={v[someVal]}
-                                          />
+                                          <>
+                                            {(someInd === 0 && (
+                                              <RootTable.TableBodyData
+                                                isTableHeading={true}
+                                                tableHeading={v[someVal]}
+                                              />
+                                            )) || (
+                                              <RootTable.TableBodyData
+                                                isTableHeading={false}
+                                                tableHeading={v[someVal]}
+                                              />
+                                            )}
+                                          </>
                                         );
                                       })}
                                   </RootTable.TableRow>
@@ -635,10 +671,19 @@ export default function Table() {
                                       {Object.keys(v).map(
                                         (someVal, someInd) => {
                                           return (
-                                            <RootTable.TableBodyData
-                                              isTableHeading={false}
-                                              tableHeading={v[someVal]}
-                                            />
+                                            <>
+                                              {(someInd === 0 && (
+                                                <RootTable.TableBodyData
+                                                  isTableHeading={true}
+                                                  tableHeading={v[someVal]}
+                                                />
+                                              )) || (
+                                                <RootTable.TableBodyData
+                                                  isTableHeading={false}
+                                                  tableHeading={v[someVal]}
+                                                />
+                                              )}
+                                            </>
                                           );
                                         }
                                       )}
@@ -646,10 +691,19 @@ export default function Table() {
                                   )) ||
                                     Object.keys(v).map((someVal, someInd) => {
                                       return (
-                                        <RootTable.TableBodyData
-                                          isTableHeading={false}
-                                          tableHeading={v[someVal]}
-                                        />
+                                        <>
+                                          {(someInd === 0 && (
+                                            <RootTable.TableBodyData
+                                              isTableHeading={true}
+                                              tableHeading={v[someVal]}
+                                            />
+                                          )) || (
+                                            <RootTable.TableBodyData
+                                              isTableHeading={false}
+                                              tableHeading={v[someVal]}
+                                            />
+                                          )}
+                                        </>
                                       );
                                     })}
                                 </RootTable.TableRow>
