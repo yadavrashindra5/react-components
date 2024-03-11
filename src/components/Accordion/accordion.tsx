@@ -43,7 +43,7 @@ function Header({ headingText }: { headingText: string }) {
         }`}
         height="24px"
         width="24px"
-        src="./src/assets/chevron.svg"
+        src="./src/assets/plus_icon.svg"
         alt="Down arrow"
       />
     </div>
