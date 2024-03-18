@@ -1,3 +1,4 @@
+import { HTMLProps } from "react";
 import styles from "./text.module.css";
 
 interface IText {
@@ -5,6 +6,10 @@ interface IText {
   className?: string;
 }
 
-export default function Text({ text, className = "" }: IText) {
-  return <p className={styles.text + " " + className}>{text}</p>;
+type TParagraph = HTMLProps<HTMLParagraphElement> & {
+  text: string;
+};
+
+export default function Text({ text }: TParagraph) {
+  return <p className={styles.text}>{text}</p>;
 }
