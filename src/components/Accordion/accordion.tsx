@@ -1,5 +1,10 @@
 "use client";
-import React, { MouseEventHandler, useContext, useState } from "react";
+import React, {
+  HTMLProps,
+  MouseEventHandler,
+  useContext,
+  useState,
+} from "react";
 import styles from "./accordion.module.css";
 import Heading from "../Heading/heading";
 import Text from "../Text/text";
@@ -12,15 +17,11 @@ interface IAccordionContext {
   handleOpen: MouseEventHandler<HTMLButtonElement>;
 }
 
+interface AccordionProps extends HTMLProps<HTMLDivElement> {}
+
 const AccordionContext = React.createContext<IAccordionContext | null>(null);
 
-function Accordion({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className: string;
-}) {
+function Accordion({ children, className, ...props }: AccordionProps) {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);
 
   const handleOpen = () => setIsOpen(!isOpen);
@@ -31,6 +32,7 @@ function Accordion({
         className={
           styles.accordion + ` ${isOpen ? styles.open : ""}` + " " + className
         }
+        {...props}
       >
         {children}
       </div>
@@ -43,7 +45,7 @@ function Header({ headingText }: { headingText: string }) {
 
   return (
     <div className={styles.accordion_heading}>
-      <Heading heading="h3" headingText={headingText} />
+      <Heading heading="h3">{headingText}</Heading>
 
       <button type="button" onClick={headerConsumer?.handleOpen}>
         <img

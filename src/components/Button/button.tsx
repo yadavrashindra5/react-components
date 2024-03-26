@@ -1,7 +1,7 @@
 import { HTMLProps } from "react";
 import styles from "./button.module.css";
 
-interface IButton extends HTMLProps<HTMLButtonElement> {
+interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   buttonName: string;
   disabled?: boolean;
   type?: "submit" | "button";
@@ -12,7 +12,7 @@ export default function Button({
   buttonName,
   disabled = false,
   ...props
-}: IButton) {
+}: ButtonProps) {
   return (
     <button
       className={styles.button + " " + className}

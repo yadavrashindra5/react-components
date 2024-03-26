@@ -3,16 +3,14 @@ import styles from "./componentsView.module.css";
 import Box from "../../components/Box/box";
 import Heading from "../../components/Heading/heading";
 import Text from "../../components/Text/text";
-import CodeLists from "../../components/CodeLists/codeLists";
 import { Link } from "react-router-dom";
 import { IPropsDetail, PropsInfo } from "../../data/Props";
 import RootTable from "../../components/Table/table";
-import { headingProps } from "../../data/propsData/headingProps";
 
 export interface IComponentsView {
   heading: string;
   subHeading: string | string[];
-  propsAccepted?: PropsInfo;
+  propsAccepted: PropsInfo;
   children?: React.ReactNode;
 }
 
@@ -27,13 +25,15 @@ const ComponentsView = ({
       <Link to={"/"}>
         👈 <span>Go Home</span>
       </Link>
-      <Heading heading="h3" headingText={heading} />
+      <Heading heading="h3">{heading}</Heading>
       {subHeading?.length > 1 && Array.isArray(subHeading)
         ? subHeading?.map((subHeadingText, index) => (
             <Text text={subHeadingText} key={index} />
           ))
         : typeof subHeading === "string" && <Text text={subHeading} />}
-      <Heading heading="h4" headingText="🧾 Props Accepted:" />
+      <Heading className={styles.heading} heading="h4">
+        🧾 Props Accepted:
+      </Heading>
       <PropsTable {...propsAccepted} />
       <Box className={styles.componentsView}>{children}</Box>
     </section>
@@ -43,7 +43,7 @@ const ComponentsView = ({
 function PropsTable(props: PropsInfo) {
   const { headers, caption, propsDetail } = props;
   return (
-    <RootTable caption={caption}>
+    <RootTable className={styles.table} caption={caption}>
       <RootTable.TableHead>
         <RootTable.TableRow>
           {headers.map((header, index) => {
@@ -58,15 +58,15 @@ function PropsTable(props: PropsInfo) {
         </RootTable.TableRow>
       </RootTable.TableHead>
       <RootTable.TableBody>
-        {propsDetail.map((propsDetail: IPropsDetail) => {
+        {propsDetail.map((propsDetail: IPropsDetail, index) => {
           return (
-            <RootTable.TableRow>
-              {Object.keys(propsDetail).map((propVal, propInd) => {
+            <RootTable.TableRow key={index}>
+              {Object.keys(propsDetail).map((propVal: string, propInd) => {
                 return (
                   <RootTable.TableBodyData
                     key={propInd}
                     isTableHeading={false}
-                    tableHeading={propsDetail[propVal]}
+                    tableHeading={propsDetail[propVal as keyof IPropsDetail]}
                   />
                 );
               })}

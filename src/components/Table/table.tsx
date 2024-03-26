@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HTMLProps } from "react";
 import styles from "./table.module.css";
 import { planetData } from "./TableData";
 import Heading from "../Heading/heading";
@@ -288,7 +288,6 @@ export function Table() {
         </table>
       </div> */}
 
-      <Heading heading="h1" headingText="This is using simple html tags." />
       <div className={styles.solar_system}>
         <table>
           <caption>
@@ -486,8 +485,6 @@ export function Table() {
           </tbody>
         </table>
       </div>
-
-      <Heading heading="h1" headingText="This is using React components" />
 
       <div className={styles.solar_system_using_component}>
         <RootTable caption={planetary_system.caption}>
@@ -704,17 +701,17 @@ export function Table() {
   );
 }
 
-interface IRootTable {
+interface IRootTable extends HTMLProps<HTMLTableElement> {
   caption: string;
   children: React.ReactNode;
 }
 
 const RootTableContext = React.createContext(null);
 
-export default function RootTable({ caption, children }: IRootTable) {
+export default function RootTable({ caption, children, ...props }: IRootTable) {
   return (
     <RootTableContext.Provider value={null}>
-      <table>
+      <table {...props}>
         <caption>{caption}</caption>
         {children}
       </table>
@@ -769,7 +766,7 @@ function TableBodyData({
   rowspan,
 }: {
   scope?: "rowgroup" | "row" | "colgroup" | "col";
-  tableHeading?: string | number;
+  tableHeading?: string | number ;
   isTableHeading: boolean;
   colspan?: number;
   rowspan?: number;

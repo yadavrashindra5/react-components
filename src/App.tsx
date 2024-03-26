@@ -45,13 +45,9 @@ function App() {
           propsAccepted={headingProps}
           children={headingArr.map((heading, index) => {
             return (
-              <Heading
-                key={heading}
-                heading={heading}
-                headingText={`H${
-                  index + 1
-                } - The quick brown fox jumps over the lazy dog.`}
-              />
+              <Heading key={heading} heading={heading}>
+                H{index + 1} - The quick brown fox jumps over the lazy dog.
+              </Heading>
             );
           })}
         />

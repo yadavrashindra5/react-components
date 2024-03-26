@@ -28,12 +28,9 @@ export default function Navbar() {
     <Container>
       <header>
         <nav className={styles.navbar}>
-          <Heading
-            className={styles.heading}
-            heading="h1"
-            headingText="🍭 Poppins Library"
-            fontSize="32px"
-          />
+          <Heading heading="h1" className={styles.heading}>
+            🍭 Poppins Library
+          </Heading>
           <ul>
             {navbarObj.map((navbar) => {
               return (
