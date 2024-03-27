@@ -78,14 +78,14 @@ export default function HeroSection() {
 
   return (
     <div className={styles.hero_section}>
-      <Heading
-        heading="h2"
-        headingText="React Component Library ⚛️"
-        className={styles.home_heading}
-      />
+      <Heading heading="h2" className={styles.home_heading}>
+        React Component Library ⚛️
+      </Heading>
       <Text text="A Simple Component Library built with React and CSS to create some personal projects. Hosted on Github. Poppins font is used. react-router-dom is used for routing." />
       <hr />
-      <Heading heading="h3" headingText="Components List" />
+      <Heading heading="h3" className={styles.home_heading}>
+        Components List
+      </Heading>
       <ul>
         {linkString.map((linkStr) => {
           return (

@@ -15,3 +15,13 @@
 .components_view a span:hover {
   text-decoration: underline;
 }
+
+.components_view {
+  .heading {
+    margin-top: 3rem;
+  }
+}
+
+.table {
+  width: 100%;
+}

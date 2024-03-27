@@ -6,10 +6,10 @@
   font-family: poppins-semi-bold;
   background-color: #fff;
   border: 0.2rem solid #000;
+  transition: all 300ms;
 }
 
 .button:hover {
-  transition: 300ms;
   background-color: #595959;
   box-shadow: 6px 6px 2px 1px rgba(59, 59, 59, 0.2);
   color: #fff;

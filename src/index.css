@@ -91,7 +91,6 @@
   font-family: poppins-regular;
   /* Set the base font size to 10px (62.5% of 16px) */
   /* font-size: 1.6rem;  Equivalent to 16px (1.6 * 10px) */
-  font-size: 62.5%;
   --primary-color: #4da1ff;
   --secondary-color: #00dfa2;
   --tertiary-color: #f4ce14;
@@ -106,6 +105,11 @@
   --tertiary-button-color-on-hover: #c3a510;
   --danger-button-color: var(--danger-color);
   --danger-button-color-on-hover: #cc004d;
+}
+
+html,
+body {
+  font-size: 62.5%;
 }
 
 p {

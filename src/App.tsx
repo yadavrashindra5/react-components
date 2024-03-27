@@ -12,7 +12,6 @@ import Text from "./components/Text/text";
 import { accordionData } from "./helper/accordionData";
 import Accordion from "./components/Accordion/accordion";
 import CarouselSection from "./sections/carouselSection/CarouselSection";
-import TableSection from "./sections/tableSection/TableSection";
 import { headingProps } from "./data/propsData/headingProps";
 import { paragraphProps } from "./data/propsData/paragraphProps";
 import { buttonProps } from "./data/propsData/buttonProps";
@@ -21,6 +20,7 @@ import { accordionProps } from "./data/propsData/accordionProps";
 import { alertsProps } from "./data/propsData/alertsProps";
 import { inputProps } from "./data/propsData/inputProps";
 import { carouselProps } from "./data/propsData/carouselProps";
+import Slider from "./components/Slider/slider";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -45,13 +45,9 @@ function App() {
           propsAccepted={headingProps}
           children={headingArr.map((heading, index) => {
             return (
-              <Heading
-                key={heading}
-                heading={heading}
-                headingText={`H${
-                  index + 1
-                } - The quick brown fox jumps over the lazy dog.`}
-              />
+              <Heading key={heading} heading={heading}>
+                H{index + 1} - The quick brown fox jumps over the lazy dog.
+              </Heading>
             );
           })}
         />
@@ -165,6 +161,7 @@ function App() {
           ))}
         </Routes>
       </Router>
+      <Slider />
     </Container>
   );
 }
