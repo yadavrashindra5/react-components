@@ -15,7 +15,6 @@ type TLinkString = {
 };
 
 export default function HeroSection() {
-  console.log("Hello world");
   const linkString: TLinkString[] = [
     {
       id: 1,
