@@ -21,6 +21,7 @@ import { alertsProps } from "./data/propsData/alertsProps";
 import { inputProps } from "./data/propsData/inputProps";
 import { carouselProps } from "./data/propsData/carouselProps";
 import Slider from "./components/Slider/slider";
+import RootAlert from "./components/Alert/alert";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -161,7 +162,14 @@ function App() {
           ))}
         </Routes>
       </Router>
-      <Slider />
+      {/* <Slider /> */}
+      <RootAlert type="success" timer={2000} />
+      <br />
+      <RootAlert type="danger" timer={3000} />
+      <br />
+      <RootAlert type="warning" timer={4000} />
+      <br />
+      <RootAlert timer={5000} />
     </Container>
   );
 }

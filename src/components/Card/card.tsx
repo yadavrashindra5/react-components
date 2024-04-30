@@ -25,7 +25,7 @@ export default function Card({
   return (
     <Box className={styles.card + " " + className}>
       <div className={styles.card_header}>
-        <Heading heading="h3" headingText={cardHeading} />
+        <Heading heading="h3">{cardHeading}</Heading>
         {subtitle && <sub>{subtitle}</sub>}
       </div>
       {breakPoints && <hr />}

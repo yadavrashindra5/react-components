@@ -8,7 +8,7 @@ import Button from "../../components/Button/button";
 import Box from "../../components/Box/box";
 
 interface ErrorHandlingInput extends IInput {
-  id?: number;
+  uniqueId?: number;
   errorMessage: string;
 }
 
@@ -25,17 +25,17 @@ export default function InputSection() {
 
   const sampleInput: ErrorHandlingInput[] = [
     {
-      id: 1,
+      uniqueId: 1,
       labelId: "email",
       inputName: "Email",
       placeholder: "john.doe@example.com",
-      pattern: "^([a-zA-Z0-9._]+)@([a-zA-Z]+).([a-zA-Z]{2,6})(.[a-z]{2,6})?$",
-      type: "text",
+      pattern: `^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+`,
+      type: "email",
       required: true,
       errorMessage: "Please enter a valid Email address.",
     },
     {
-      id: 2,
+      uniqueId: 2,
       labelId: "password",
       inputName: "Password",
       placeholder: "●●●●●●●●",
@@ -59,12 +59,12 @@ export default function InputSection() {
   return (
     <Box>
       <form onSubmit={handleSubmit}>
-        <Heading heading="h2" headingText="Sign In" />
+        <Heading heading="h2">Sign In</Heading>
         <hr />
         {sampleInput.map((input) => {
           return (
             <ErrorHandlingInput
-              key={input.id}
+              key={input.uniqueId}
               labelId={input.labelId}
               inputName={input.inputName}
               placeholder={input.placeholder}

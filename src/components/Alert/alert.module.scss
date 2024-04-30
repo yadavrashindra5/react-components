@@ -1,0 +1,47 @@
+.alert {
+  background-color: #fefefe;
+  max-width: 40rem;
+  border: solid 0.2rem #111;
+  padding: 1.2rem 1.2rem;
+  border-radius: 1.2rem;
+
+  position: relative;
+
+  display: flex;
+  gap: 1.2rem;
+
+  .alert_body {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.close_button {
+  position: absolute;
+
+  background-color: transparent;
+  border: none;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.success {
+  background-color: var(--primary-color);
+}
+
+.danger {
+  background-color: var(--danger-color);
+}
+
+.warning {
+  background-color: var(--tertiary-color);
+}
