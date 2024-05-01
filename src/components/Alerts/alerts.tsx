@@ -6,14 +6,14 @@ import Text from "../Text/text";
 import { HTMLProps } from "react";
 
 type TAlerts = HTMLProps<HTMLDivElement> & {
-  alertBody: string;
+  bannerBody: string;
 };
 
-export default function Alerts({ alertBody, className = "" }: TAlerts) {
+export default function Alerts({ bannerBody, className = "" }: TAlerts) {
   return (
     <Box className={styles.alerts + " " + className}>
       <img src={alert_circle} alt="Alert Symbol" />
-      <Text text={alertBody} />
+      <Text text={bannerBody} />
     </Box>
   );
 }

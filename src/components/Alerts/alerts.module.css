@@ -4,6 +4,9 @@
   border-right: 0.6rem solid;
   background-color: #b0b0b080;
   padding: 1rem;
+
+  display: flex;
+  gap: 1.2rem;
 }
 
 .alerts p {

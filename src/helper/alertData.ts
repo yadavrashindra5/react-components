@@ -1,27 +1,27 @@
-export const alertData = [
+export const bannerData = [
   {
     id: 1,
     className: "primary_color",
-    alertBody: "This is a sample primary alert.",
+    bannerBody: "This is a sample primary banner.",
   },
   {
     id: 2,
     className: "secondary_color",
-    alertBody: "This is a sample secondary alert.",
+    bannerBody: "This is a sample secondary banner.",
   },
   {
     id: 3,
     className: "tertiary_color",
-    alertBody: "This is a sample tertiary alert.",
+    bannerBody: "This is a sample tertiary banner.",
   },
   {
     id: 4,
     className: "danger_color",
-    alertBody: "This is a sample danger alert.",
+    bannerBody: "This is a sample danger banner.",
   },
   {
     id: 5,
     className: "",
-    alertBody: "This is a sample default alert.",
+    bannerBody: "This is a sample default banner.",
   },
 ];

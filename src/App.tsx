@@ -17,11 +17,9 @@ import { paragraphProps } from "./data/propsData/paragraphProps";
 import { buttonProps } from "./data/propsData/buttonProps";
 import { cardsProps } from "./data/propsData/cardProps";
 import { accordionProps } from "./data/propsData/accordionProps";
-import { alertsProps } from "./data/propsData/alertsProps";
+import { bannerProps } from "./data/propsData/alertsProps";
 import { inputProps } from "./data/propsData/inputProps";
 import { carouselProps } from "./data/propsData/carouselProps";
-import Slider from "./components/Slider/slider";
-import RootAlert from "./components/Alert/alert";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -111,12 +109,12 @@ function App() {
     },
     {
       id: 7,
-      path: "/alerts",
+      path: "/banners",
       element: (
         <ComponentsView
-          heading="Alerts"
+          heading="Banners"
           subHeading="An alert component is a graphical element designed to convey important information or notify users about specific events within a web or application interface."
-          propsAccepted={alertsProps}
+          propsAccepted={bannerProps}
           children={<AlertSection />}
         />
       ),
@@ -162,14 +160,6 @@ function App() {
           ))}
         </Routes>
       </Router>
-      {/* <Slider /> */}
-      <RootAlert type="success" timer={2000} />
-      <br />
-      <RootAlert type="danger" timer={3000} />
-      <br />
-      <RootAlert type="warning" timer={4000} />
-      <br />
-      <RootAlert timer={5000} />
     </Container>
   );
 }

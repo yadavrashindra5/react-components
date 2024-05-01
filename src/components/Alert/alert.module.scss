@@ -1,16 +1,32 @@
 .alert {
+  position: absolute;
+  z-index: 9999;
+  width: 40rem;
+  right: -40rem;
+  bottom: 2rem;
+
+  &.show {
+    animation: slide 350ms forwards;
+  }
+
+  &.hide {
+    right: 0rem;
+    display: hidden;
+    animation: slide_out 350ms forwards;
+  }
+}
+
+.alert_body {
   background-color: #fefefe;
-  max-width: 40rem;
   border: solid 0.2rem #111;
   padding: 1.2rem 1.2rem;
   border-radius: 1.2rem;
-
   position: relative;
 
   display: flex;
   gap: 1.2rem;
 
-  .alert_body {
+  .alert_inner_body {
     h1 {
       font-size: 2rem;
     }
@@ -44,4 +60,16 @@
 
 .warning {
   background-color: var(--tertiary-color);
+}
+
+@keyframes slide {
+  100% {
+    right: 2rem;
+  }
+}
+
+@keyframes slide_out {
+  100% {
+    right: -40rem;
+  }
 }

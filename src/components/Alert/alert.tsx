@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+// Static Assets
 import close_cross from "../../assets/close_cross.svg";
 import tick_circle from "../../assets/tick_circle.svg";
 import danger from "../../assets/warning.svg";
 import warning from "../../assets/alert-circle.svg";
+
 import styles from "./alert.module.scss";
 
 interface AlertProps {
@@ -11,7 +13,7 @@ interface AlertProps {
   heading?: string;
   message?: string;
   timer?: number;
-  type?: "success" | "warning" | "danger" | "default";
+  type?: "success" | "warning" | "danger" | "default" | string;
 }
 
 function RootAlert({
@@ -25,16 +27,26 @@ function RootAlert({
 }: AlertProps) {
   const [visible, setVisible] = useState<boolean>(true);
 
+  let timeInterval: number;
+
   useEffect(() => {
-    const time = setTimeout(() => {
+    if (timeInterval) {
+      clearTimeout(timeInterval);
+    }
+
+    timeInterval = setTimeout(() => {
       setVisible(false);
-      console.log("This will be shown for 2 sec");
     }, timer);
 
     return () => {
-      clearTimeout(time);
+      clearTimeout(timeInterval);
     };
-  }, []);
+  }, [visible]);
+
+  const handleClick = () => {
+    setVisible(false);
+    if (timeInterval) clearTimeout(timeInterval);
+  };
 
   switch (type) {
     case "success":
@@ -59,18 +71,23 @@ function RootAlert({
       break;
   }
 
-  return visible ? (
-    <div className={`${styles.alert} ${styles[type]} ${className}`} {...props}>
-      <button onClick={() => setVisible(false)} className={styles.close_button}>
-        <img src={close_cross} alt="close button" />
-      </button>
-      <img src={image} alt="some image" />
-      <div className={styles.alert_body}>
-        <h1>{heading}</h1>
-        <p>{message}</p>
+  return (
+    <div className={`${styles.alert} ${visible ? styles.show : styles.hide}`}>
+      <div
+        className={`${styles.alert_body} ${styles[type]} ${className}`}
+        {...props}
+      >
+        <button onClick={() => handleClick()} className={styles.close_button}>
+          <img src={close_cross} alt="close button" />
+        </button>
+        <img src={image} alt="some image" />
+        <div className={styles.alert_inner_body}>
+          <h1>{heading}</h1>
+          <p>{message}</p>
+        </div>
       </div>
     </div>
-  ) : null;
+  );
 }
 
 export default RootAlert;
