@@ -43,8 +43,6 @@ function Alert({
   const left = isLeft ? "left" : "";
   const isRight = position.includes("right");
   const right = isRight ? "right" : "";
-  const isCenter = position.includes("center");
-  const center = isCenter ? "center" : "";
 
   let timeInterval: number;
 
@@ -89,9 +87,9 @@ function Alert({
       <Box
         className={`${styles.alert} ${styles[position]} ${
           visible
-            ? styles[`show_${isLeft ? left : isRight ? right : center}`]
+            ? styles[`show_${isLeft ? left : isRight ? right : position}`]
             : !visible || hasTransitionedIn
-            ? styles[`hide_${isLeft ? left : isRight ? right : center}`]
+            ? styles[`hide_${isLeft ? left : isRight ? right : position}`]
             : ""
         }`}
       >

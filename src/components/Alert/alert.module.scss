@@ -54,6 +54,24 @@
     left: 0rem;
     animation: slide_out_left 350ms forwards;
   }
+
+  &.show_top_center {
+    animation: slide_top_center 350ms forwards;
+  }
+
+  &.hide_top_center {
+    top: 0rem;
+    animation: slide_out_top_center 350ms forwards;
+  }
+
+  &.show_bottom_center {
+    animation: slide_bottom_center 350ms forwards;
+  }
+
+  &.hide_bottom_center {
+    bottom: -50rem;
+    animation: slide_out_bottom_center 350ms forwards;
+  }
 }
 
 .alert_body {
@@ -126,6 +144,34 @@
 @keyframes slide_out_left {
   100% {
     left: -40rem;
+    opacity: 0;
+  }
+}
+
+@keyframes slide_top_center {
+  100% {
+    top: 5.3rem;
+    opacity: 1;
+  }
+}
+
+@keyframes slide_out_top_center {
+  100% {
+    top: -5.3rem;
+    opacity: 0;
+  }
+}
+
+@keyframes slide_bottom_center {
+  100% {
+    bottom: -5.3rem;
+    opacity: 1;
+  }
+}
+
+@keyframes slide_out_bottom_center {
+  100% {
+    bottom: -50.4rem;
     opacity: 0;
   }
 }
