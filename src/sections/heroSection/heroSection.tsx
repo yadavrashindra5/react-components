@@ -55,8 +55,8 @@ export default function HeroSection() {
     {
       id: 6,
       icon: { imagePath: "./src/assets/alert-circle.svg", alt: "Alert icon" },
-      path: "/alerts",
-      name: "Alerts",
+      path: "/banner",
+      name: "Banner",
     },
     {
       id: 7,
@@ -72,6 +72,15 @@ export default function HeroSection() {
       },
       path: "/carousel",
       name: "Carousel",
+    },
+    {
+      id: 9,
+      icon: {
+        imagePath: "./src/assets/carousel-icon.svg",
+        alt: "Alerts",
+      },
+      path: "/alert",
+      name: "Alert",
     },
   ];
 

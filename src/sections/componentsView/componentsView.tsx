@@ -35,7 +35,7 @@ const ComponentsView = ({
         🧾 Props Accepted:
       </Heading>
       <PropsTable {...propsAccepted} />
-      <Box className={styles.componentsView}>{children}</Box>
+      {children && <Box className={styles.componentsView}>{children}</Box>}
     </section>
   );
 };

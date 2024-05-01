@@ -6,6 +6,8 @@ import danger from "../../assets/warning.svg";
 import warning from "../../assets/alert-circle.svg";
 
 import styles from "./alert.module.scss";
+import Box from "../Box/box";
+import { useMountTransition } from "../../hooks/useMountTransition";
 
 interface AlertProps {
   className?: string;
@@ -13,19 +15,36 @@ interface AlertProps {
   heading?: string;
   message?: string;
   timer?: number;
+  position?:
+    | "bottom_left"
+    | "bottom_right"
+    | "top_right"
+    | "top_left"
+    | "top_center"
+    | "bottom_center"
+    | string;
   type?: "success" | "warning" | "danger" | "default" | string;
 }
 
-function RootAlert({
-  className,
+function Alert({
+  className = "",
   image = tick_circle,
   heading = "Default Heading",
-  message = "Default Message",
+  message = "Default timer is 1500ms",
   timer = 1500,
+  position = "top_left",
   type = "default",
   ...props
 }: AlertProps) {
   const [visible, setVisible] = useState<boolean>(true);
+  const hasTransitionedIn = useMountTransition(visible, 350);
+
+  const isLeft = position.includes("left");
+  const left = isLeft ? "left" : "";
+  const isRight = position.includes("right");
+  const right = isRight ? "right" : "";
+  const isCenter = position.includes("center");
+  const center = isCenter ? "center" : "";
 
   let timeInterval: number;
 
@@ -51,18 +70,12 @@ function RootAlert({
   switch (type) {
     case "success":
       image = tick_circle;
-      heading = "Success Heading";
-      message = "Success Message";
       break;
     case "warning":
       image = warning;
-      heading = "Warning Heading";
-      message = "Warning Message";
       break;
     case "danger":
       image = danger;
-      heading = "Danger Heading";
-      message = "Danger Message";
       break;
     default:
       image = image;
@@ -72,22 +85,32 @@ function RootAlert({
   }
 
   return (
-    <div className={`${styles.alert} ${visible ? styles.show : styles.hide}`}>
-      <div
-        className={`${styles.alert_body} ${styles[type]} ${className}`}
-        {...props}
+    (hasTransitionedIn || visible) && (
+      <Box
+        className={`${styles.alert} ${styles[position]} ${
+          visible
+            ? styles[`show_${isLeft ? left : isRight ? right : center}`]
+            : !visible || hasTransitionedIn
+            ? styles[`hide_${isLeft ? left : isRight ? right : center}`]
+            : ""
+        }`}
       >
-        <button onClick={() => handleClick()} className={styles.close_button}>
-          <img src={close_cross} alt="close button" />
-        </button>
-        <img src={image} alt="some image" />
-        <div className={styles.alert_inner_body}>
-          <h1>{heading}</h1>
-          <p>{message}</p>
+        <div
+          className={`${styles.alert_body} ${styles[type]} ${className}`}
+          {...props}
+        >
+          <button onClick={() => handleClick()} className={styles.close_button}>
+            <img src={close_cross} alt="close button" />
+          </button>
+          <img src={image} alt="some image" />
+          <div className={styles.alert_inner_body}>
+            <h1>{heading}</h1>
+            <p>{message}</p>
+          </div>
         </div>
-      </div>
-    </div>
+      </Box>
+    )
   );
 }
 
-export default RootAlert;
+export default Alert;

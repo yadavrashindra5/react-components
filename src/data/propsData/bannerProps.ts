@@ -3,7 +3,7 @@ import { PropsInfo } from "../Props";
 export const bannerProps: PropsInfo = {
   headers: ["ID", "Name", "Type", "Description"],
   caption:
-    "The alerts component accepts two props namely className and alertBody",
+    "The Banner component accepts two props namely className and alertBody",
   propsDetail: [
     {
       id: 1,

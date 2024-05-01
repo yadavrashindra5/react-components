@@ -3,10 +3,6 @@ import styles from "./box.module.css";
 
 type TBox = HTMLProps<HTMLDivElement>;
 
-export default function Box({ children, className }: TBox) {
-  const handleClick = () => {
-    console.log("handleClick");
-  };
-
+export default function Box({ children, className = "" }: TBox) {
   return <div className={styles.box + " " + className}>{children}</div>;
 }
