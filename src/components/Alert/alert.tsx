@@ -32,7 +32,7 @@ function Alert({
   heading = "Default Heading",
   message = "Default timer is 1500ms",
   timer = 1500,
-  position = "top_left",
+  position = "bottom_right",
   type = "default",
   ...props
 }: AlertProps) {
