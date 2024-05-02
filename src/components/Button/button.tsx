@@ -1,7 +1,7 @@
-import { HTMLProps } from "react";
+import { ButtonHTMLAttributes } from "react";
 import styles from "./button.module.css";
 
-interface ButtonProps extends HTMLProps<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonName: string;
   disabled?: boolean;
   type?: "submit" | "button";

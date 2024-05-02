@@ -1,26 +1,35 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/navbar";
+// Components Section
 import Homepage from "./page/homepage";
 import ButtonSection from "./sections/ButtonSection/buttonSection";
 import CardSection from "./sections/CardSection/cardSection";
-import AlertSection from "./sections/alertSection/alertSection";
 import InputSection from "./sections/inputSection/inputSection";
+import CarouselSection from "./sections/carouselSection/CarouselSection";
+import BannerSection from "./sections/bannerSection/bannerSection";
+import { ComponentsView } from "./sections/componentsView/componentsView";
+
+// Components imported directly
+import Navbar from "./components/Navbar/navbar";
 import Container from "./components/Container/container";
 import Heading, { THeading } from "./components/Heading/heading";
-import { ComponentsView } from "./sections/componentsView/componentsView";
 import Text from "./components/Text/text";
-import { accordionData } from "./helper/accordionData";
 import Accordion from "./components/Accordion/accordion";
-import CarouselSection from "./sections/carouselSection/CarouselSection";
+
+// Components Props
 import { headingProps } from "./data/propsData/headingProps";
 import { paragraphProps } from "./data/propsData/paragraphProps";
 import { buttonProps } from "./data/propsData/buttonProps";
 import { cardsProps } from "./data/propsData/cardProps";
 import { accordionProps } from "./data/propsData/accordionProps";
-import { alertsProps } from "./data/propsData/alertsProps";
+import { bannerProps } from "./data/propsData/bannerProps";
 import { inputProps } from "./data/propsData/inputProps";
 import { carouselProps } from "./data/propsData/carouselProps";
-import Slider from "./components/Slider/slider";
+
+// Sample data of components
+import { accordionData } from "./data/sample/accordionData";
+import { alertProps } from "./data/propsData/alertProps";
+import AlertSection from "./sections/alertSection/alertSection";
+import AccordionSection from "./sections/accordionSection/accordionSection";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -99,24 +108,19 @@ function App() {
           heading="Accordion"
           subHeading="An accordion component is a user interface (UI) element designed to organize and display content in a collapsible and expandable manner, allowing users to interact with different sections of information."
           propsAccepted={accordionProps}
-          children={accordionData.map((accordion) => (
-            <Accordion key={accordion.id}>
-              <Accordion.Header headingText={accordion.header} />
-              <Accordion.Body bodyText={accordion.body} />
-            </Accordion>
-          ))}
+          children={<AccordionSection />}
         />
       ),
     },
     {
       id: 7,
-      path: "/alerts",
+      path: "/banner",
       element: (
         <ComponentsView
-          heading="Alerts"
+          heading="Banners"
           subHeading="An alert component is a graphical element designed to convey important information or notify users about specific events within a web or application interface."
-          propsAccepted={alertsProps}
-          children={<AlertSection />}
+          propsAccepted={bannerProps}
+          children={<BannerSection />}
         />
       ),
     },
@@ -144,6 +148,18 @@ function App() {
         />
       ),
     },
+    {
+      id: 10,
+      path: "/alert",
+      element: (
+        <ComponentsView
+          heading="Alert"
+          subHeading="The Alert component is a customizable alert system built using React and CSS animations. It provides users with visually appealing alerts that slide into view and out of view. The component supports various types of alerts, including success, warning, and danger, each with distinct styling and messaging. Users can dismiss alerts by clicking on a close button, and the component includes a timer option for automatic dismissal after a specified duration."
+          propsAccepted={alertProps}
+          children={<AlertSection />}
+        />
+      ),
+    },
   ];
 
   return (
@@ -161,7 +177,6 @@ function App() {
           ))}
         </Routes>
       </Router>
-      <Slider />
     </Container>
   );
 }

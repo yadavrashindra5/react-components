@@ -1,13 +1,13 @@
 import { PropsInfo } from "../Props";
 
-export const alertsProps: PropsInfo = {
+export const bannerProps: PropsInfo = {
   headers: ["ID", "Name", "Type", "Description"],
   caption:
-    "The alerts component accepts two props namely className and alertBody",
+    "The Banner component accepts two props namely className and alertBody",
   propsDetail: [
     {
       id: 1,
-      name: "alertBody",
+      name: "bannerBody",
       type: "string",
       description: "Represents the text of the alert.",
     },

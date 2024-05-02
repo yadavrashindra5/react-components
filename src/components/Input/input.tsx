@@ -1,18 +1,10 @@
-import { ChangeEvent } from "react";
+import { HTMLProps } from "react";
 import styles from "./input.module.css";
 
-export interface IInput {
+export interface IInput extends HTMLProps<HTMLInputElement> {
   labelId: string;
   inputName: string;
-  placeholder: string;
-  pattern: string;
-  type: string;
-  required: boolean;
-  value?: string;
   focus?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: () => void;
   errorMessage?: string;
   className?: string;
 }
@@ -22,15 +14,10 @@ export default function Input({
   inputName,
   pattern,
   placeholder = "",
-  type,
-  required,
-  value,
   focus,
   errorMessage,
-  onChange,
-  onBlur,
-  onFocus,
   className = "",
+  ...props
 }: IInput) {
   return (
     <div className={styles.input + " " + className}>
@@ -41,12 +28,7 @@ export default function Input({
         placeholder={placeholder ? placeholder : inputName}
         pattern={pattern}
         name={labelId}
-        type={type}
-        required={required}
-        onChange={onChange}
-        value={value}
-        onBlur={onBlur}
-        onFocus={onFocus}
+        {...props}
       />
       <p>{errorMessage}</p>
     </div>
