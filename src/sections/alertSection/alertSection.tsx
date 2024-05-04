@@ -5,13 +5,6 @@ export default function AlertSection() {
   const sortedAlerts = alertData.sort((a, b) => b.timer - a.timer);
   return (
     <>
-      {/* <div>
-        <Alert type="warning" timer={4500} />
-        <Alert type="success" timer={3500} />
-        <Alert type="danger" timer={2500} />
-        <Alert type="default" />
-      </div> */}
-
       {sortedAlerts.map((alert) => {
         return (
           <Alert
