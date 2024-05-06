@@ -1,4 +1,4 @@
-import Banner from "../../components/Alerts/banner";
+import Banner from "../../components/Banner/banner";
 import { bannerData } from "../../data/sample/bannerData";
 
 export default function BannerSection() {

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ModalContext } from "./modal";
 
-const useModal = () => {
+export default function useModal() {
   const context = useContext(ModalContext);
 
   if (!context) {
@@ -9,6 +9,4 @@ const useModal = () => {
   }
 
   return context;
-};
-
-export default useModal;
+}

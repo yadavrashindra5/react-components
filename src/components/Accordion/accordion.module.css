@@ -21,6 +21,16 @@
   align-items: center;
 }
 
+.header_open {
+  transition: color 350ms;
+  color: var(--primary-color);
+}
+
+.header_close {
+  color: #111;
+  transition: color 350ms;
+}
+
 .accordion_heading h3 {
   font-size: 1.6rem;
   padding-right: 2.4rem;
