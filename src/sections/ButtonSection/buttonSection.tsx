@@ -1,10 +1,16 @@
 import styles from "./buttonSection.module.css";
 
-import Button, { IButton } from "../../components/Button/button";
+import Button from "../../components/Button/button";
 import Heading from "../../components/Heading/heading";
 
+type ButtonProps = {
+  buttonName: string;
+  className: string;
+  disabled: boolean;
+};
+
 export default function ButtonSection() {
-  const buttonTypes: IButton[] = [
+  const buttonTypes: ButtonProps[] = [
     {
       buttonName: "Default",
       className: "",
@@ -32,12 +38,12 @@ export default function ButtonSection() {
     },
     {
       buttonName: "Disabled",
-      // className: "disabled",
+      className: "disabled",
       disabled: true,
     },
   ];
 
-  const secondaryButtonTypes: IButton[] = [
+  const secondaryButtonTypes: ButtonProps[] = [
     {
       buttonName: "Default",
       className: "secondary_simple",
@@ -65,12 +71,12 @@ export default function ButtonSection() {
     },
     {
       buttonName: "Disabled",
-      // className: "secondary_disabled",
+      className: "secondary_disabled",
       disabled: true,
     },
   ];
 
-  const tertiaryButtonTypes: IButton[] = [
+  const tertiaryButtonTypes: ButtonProps[] = [
     {
       buttonName: "Default",
       className: "tertiary_simple",
@@ -105,7 +111,7 @@ export default function ButtonSection() {
 
   return (
     <div className={styles.button_section}>
-      <Heading heading="h3" headingText="🥇 Primary Buttons" />
+      <Heading heading="h3">🥇 Primary Buttons</Heading>
       <div className={styles.button_part}>
         {buttonTypes.map((button, index) => {
           return (
@@ -119,7 +125,7 @@ export default function ButtonSection() {
         })}
       </div>
       <hr />
-      <Heading heading="h3" headingText="🥈 Secondary Buttons" />
+      <Heading heading="h3">🥈 Secondary Buttons</Heading>
       <div className={styles.button_part}>
         {secondaryButtonTypes.map((button, index) => {
           return (
@@ -133,7 +139,7 @@ export default function ButtonSection() {
         })}
       </div>
       <hr />
-      <Heading heading="h3" headingText="🥉 Tertiary Buttons" />
+      <Heading heading="h3">🥉 Tertiary Buttons</Heading>
       <div className={styles.button_part}>
         {tertiaryButtonTypes.map((button, index) => {
           return (

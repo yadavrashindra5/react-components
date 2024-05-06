@@ -41,7 +41,12 @@ function Header({ headingText }: { headingText: string }) {
   const { isOpen, handleOpen } = useAccordion();
   return (
     <div className={styles.accordion_heading}>
-      <Heading heading="h3">{headingText}</Heading>
+      <Heading
+        className={isOpen ? styles.header_open : styles.header_close}
+        heading="h3"
+      >
+        {headingText}
+      </Heading>
 
       <button type="button" onClick={handleOpen}>
         <img
