@@ -9,6 +9,7 @@ import Heading, { THeading } from "../Heading/heading";
 interface ModalValues {
   isOpen: boolean;
   handleClick: () => void;
+  handleOnKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 interface ModalBodyProps {
@@ -26,8 +27,13 @@ export default function Modal({ children }: { children: ReactNode }) {
     setIsOpen(!isOpen);
   };
 
+  const handleOnKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    console.log(event);
+    // setIsOpen(!isOpen);
+  };
+
   return (
-    <ModalContext.Provider value={{ isOpen, handleClick }}>
+    <ModalContext.Provider value={{ isOpen, handleClick, handleOnKeyDown }}>
       {children}
     </ModalContext.Provider>
   );
@@ -51,13 +57,17 @@ function ModalBody({
   headingContent,
   ...props
 }: ModalBodyProps) {
-  const { isOpen, handleClick } = useModal();
+  const { isOpen, handleClick, handleOnKeyDown } = useModal();
 
   return (
     isOpen && (
       <>
         <div className={styles.overlay} onClick={() => handleClick()} />
-        <div className={styles.modal_body} {...props}>
+        <div
+          className={styles.modal_body}
+          onKeyDown={handleOnKeyDown}
+          {...props}
+        >
           <div className={styles.heading}>
             <Heading heading={headingType}>{headingContent}</Heading>
             <button type="button" onClick={() => handleClick()}>
