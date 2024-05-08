@@ -1,36 +1,76 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 
-import styles from "./modal.module.css";
-import Box from "../Box/box";
+import styles from "./modal.module.scss";
+import cross from "../../assets/close_cross.svg";
+import Button from "../Button/button";
+import useModal from "./useModal";
+import Heading, { THeading } from "../Heading/heading";
 
-const ModalContext = React.createContext({});
-
-export default function Modal() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  
+interface ModalValues {
+  isOpen: boolean;
+  handleClick: () => void;
 }
 
-// export default function Modal() {
-//   const [isOpen, setIsOpen] = useState<boolean>(false);
+interface ModalBodyProps {
+  children: ReactNode;
+  headingType: THeading;
+  headingContent: string;
+}
 
-//   return (
-//     <>
-//       <button
-//         className={isOpen ? styles.modal_button : styles.modal_button_close}
-//         onClick={() => setIsOpen(!isOpen)}
-//       >
-//         {isOpen ? "&times;" : "Click to Open Modal"}
-//       </button>
-//       {isOpen && (
-//         <Box>
-//           <ModalHeading modalHeading="Modal Heading Example" />
-//           <hr />
-//         </Box>
-//       )}
-//     </>
-//   );
-// }
+export const ModalContext = React.createContext<ModalValues | null>(null);
 
-// function ModalHeading({ modalHeading }: { modalHeading: string }) {
-//   return <h2>{modalHeading}</h2>;
-// }
+export default function Modal({ children }: { children: ReactNode }) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <ModalContext.Provider value={{ isOpen, handleClick }}>
+      {children}
+    </ModalContext.Provider>
+  );
+}
+
+function ModalButton({ buttonName }: { buttonName: string }) {
+  const { handleClick } = useModal();
+  return (
+    <Button
+      type="button"
+      onClick={() => handleClick()}
+      className="secondary_primary"
+      buttonName={buttonName}
+    />
+  );
+}
+
+function ModalBody({
+  children,
+  headingType,
+  headingContent,
+  ...props
+}: ModalBodyProps) {
+  const { isOpen, handleClick } = useModal();
+
+  return (
+    isOpen && (
+      <>
+        <div className={styles.overlay} onClick={() => handleClick()} />
+        <div className={styles.modal_body} {...props}>
+          <div className={styles.heading}>
+            <Heading heading={headingType}>{headingContent}</Heading>
+            <button type="button" onClick={() => handleClick()}>
+              <img src={cross} alt="close button" />
+            </button>
+          </div>
+          <hr />
+          <div className={styles.body}>{children}</div>
+        </div>
+      </>
+    )
+  );
+}
+
+Modal.Button = ModalButton;
+Modal.Body = ModalBody;

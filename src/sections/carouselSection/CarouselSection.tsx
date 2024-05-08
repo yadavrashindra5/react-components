@@ -8,11 +8,9 @@ export default function CarouselSection() {
   return (
     <div className={styles.carousel_section}>
       <div className={styles.carousel_single_section}>
-        <Heading
-          heading="h3"
-          headingText="No Loop"
-          className={styles.carousel_heading}
-        />
+        <Heading heading="h3" className={styles.carousel_heading}>
+          No Loop
+        </Heading>
         <Carousel
           className={styles.carousel_custom_style}
           loop={false}
@@ -34,11 +32,9 @@ export default function CarouselSection() {
       </div>
       <hr />
       <div className={styles.carousel_single_section}>
-        <Heading
-          heading="h3"
-          headingText="Loop"
-          className={styles.carousel_heading}
-        />
+        <Heading heading="h3" className={styles.carousel_heading}>
+          Loop
+        </Heading>
         <Carousel
           loop={true}
           itemListLength={carouselItems.length}

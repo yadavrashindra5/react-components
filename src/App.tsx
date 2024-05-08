@@ -1,19 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components Section
 import Homepage from "./page/homepage";
+import { ComponentsView } from "./sections/componentsView/componentsView";
 import ButtonSection from "./sections/ButtonSection/buttonSection";
 import CardSection from "./sections/CardSection/cardSection";
 import InputSection from "./sections/inputSection/inputSection";
 import CarouselSection from "./sections/carouselSection/CarouselSection";
 import BannerSection from "./sections/bannerSection/bannerSection";
-import { ComponentsView } from "./sections/componentsView/componentsView";
+import AlertSection from "./sections/alertSection/alertSection";
+import AccordionSection from "./sections/accordionSection/accordionSection";
 
 // Components imported directly
 import Navbar from "./components/Navbar/navbar";
 import Container from "./components/Container/container";
 import Heading, { THeading } from "./components/Heading/heading";
 import Text from "./components/Text/text";
-import Accordion from "./components/Accordion/accordion";
 
 // Components Props
 import { headingProps } from "./data/propsData/headingProps";
@@ -26,10 +27,10 @@ import { inputProps } from "./data/propsData/inputProps";
 import { carouselProps } from "./data/propsData/carouselProps";
 
 // Sample data of components
-import { accordionData } from "./data/sample/accordionData";
 import { alertProps } from "./data/propsData/alertProps";
-import AlertSection from "./sections/alertSection/alertSection";
-import AccordionSection from "./sections/accordionSection/accordionSection";
+import Modal from "./components/Modal/modal";
+import { createPortal } from "react-dom";
+import ModalSection from "./sections/modalSection/modalSection";
 
 function App() {
   const headingArr: THeading[] = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -157,6 +158,18 @@ function App() {
           subHeading="The Alert component is a customizable alert system built using React and CSS animations. It provides users with visually appealing alerts that slide into view and out of view. The component supports various types of alerts, including success, warning, and danger, each with distinct styling and messaging. Users can dismiss alerts by clicking on a close button, and the component includes a timer option for automatic dismissal after a specified duration."
           propsAccepted={alertProps}
           children={<AlertSection />}
+        />
+      ),
+    },
+    {
+      id: 11,
+      path: "/modal",
+      element: (
+        <ComponentsView
+          heading="Modal"
+          subHeading="The ModalBody component renders the content of a modal dialog, including a customizable heading and body. It manages modal visibility and close functionality, with an overlay backdrop for improved user interaction."
+          propsAccepted={alertProps}
+          children={<ModalSection />}
         />
       ),
     },

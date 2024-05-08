@@ -1,9 +1,9 @@
 .accordion {
-  border: 0.2rem solid #000;
+  border: 0.2rem solid #111;
   border-radius: 1.2rem;
   margin-bottom: 2rem;
   background-color: #fff;
-  transition: all 300ms;
+  transition: all 350ms;
 }
 
 .accordion:hover {
@@ -21,6 +21,16 @@
   align-items: center;
 }
 
+.header_open {
+  transition: color 350ms;
+  color: var(--primary-color);
+}
+
+.header_close {
+  color: #111;
+  transition: color 350ms;
+}
+
 .accordion_heading h3 {
   font-size: 1.6rem;
   padding-right: 2.4rem;
@@ -34,7 +44,7 @@
   background-color: var(--primary-color-40);
   border-radius: 50%;
   cursor: pointer;
-  transition: 300ms;
+  transition: 350ms;
 
   &:hover {
     background-color: var(--primary-color);

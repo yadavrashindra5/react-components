@@ -76,11 +76,20 @@ export default function HeroSection() {
     {
       id: 9,
       icon: {
-        imagePath: "./src/assets/carousel-icon.svg",
+        imagePath: "./src/assets/alert-circle.svg",
         alt: "Alerts",
       },
       path: "/alert",
       name: "Alert",
+    },
+    {
+      id: 10,
+      icon: {
+        imagePath: "./src/assets/modal.svg",
+        alt: "Modal",
+      },
+      path: "/modal",
+      name: "Modal",
     },
   ];
 
