@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
-import styles from "./carousel.module.css";
 import CarouselLeft from "/src/assets/carousel-left.svg";
 import CarouselRight from "/src/assets/carousel-right.svg";
+
+import styles from "./carousel.module.css";
+import useCarousel from "./useCarousel";
 
 interface ICarousel {
   loop: boolean;
@@ -26,7 +28,9 @@ interface ICarouselButton {
   isNext: boolean;
 }
 
-const CarouselContext = React.createContext<ICarouselContext>(null!);
+export const CarouselContext = React.createContext<ICarouselContext | null>(
+  null
+);
 
 export default function Carousel({
   loop = true,
@@ -78,11 +82,11 @@ export default function Carousel({
 }
 
 function CarouselButton({ isNext }: ICarouselButton) {
-  const cBProvider = useContext(CarouselContext);
+  const { handleNext, handlePrev } = useCarousel();
 
   return (
     <button
-      onClick={isNext ? cBProvider?.handleNext : cBProvider?.handlePrev}
+      onClick={isNext ? handleNext : handlePrev}
       className={isNext ? styles.greater_than : styles.less_than}
     >
       <img
@@ -96,12 +100,12 @@ function CarouselButton({ isNext }: ICarouselButton) {
 }
 
 export const CarouselBody = ({ className = "", children }: ICarouselBody) => {
-  const cBProvider = useContext(CarouselContext);
+  const { value } = useCarousel();
 
   return (
     <div
       className={styles.carousel_item_div + " " + className}
-      style={{ translate: `${-100 * cBProvider?.value}%` }}
+      style={{ translate: `${-100 * value}%` }}
     >
       {children}
     </div>

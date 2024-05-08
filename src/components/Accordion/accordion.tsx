@@ -1,6 +1,11 @@
 "use client";
-import React, { HTMLProps, MouseEventHandler, useState } from "react";
-import styles from "./accordion.module.css";
+import React, {
+  HTMLProps,
+  KeyboardEvent,
+  MouseEventHandler,
+  useState,
+} from "react";
+import styles from "./accordion.module.scss";
 import Heading from "../Heading/heading";
 import Text from "../Text/text";
 
@@ -10,6 +15,7 @@ import useAccordion from "./useAccordion";
 interface IAccordionContext {
   isOpen: boolean | null;
   handleOpen: MouseEventHandler<HTMLButtonElement>;
+  handleKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void;
 }
 
 interface AccordionProps extends HTMLProps<HTMLDivElement> {}
@@ -18,17 +24,29 @@ export const AccordionContext = React.createContext<IAccordionContext | null>(
   null
 );
 
-function Accordion({ children, className, ...props }: AccordionProps) {
+function Accordion({ children, className = "", ...props }: AccordionProps) {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);
 
   const handleOpen = () => setIsOpen(!isOpen);
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.code === "Space") {
+      setIsOpen(!isOpen);
+    }
+
+    // if (event.code === "ArrowUp" || event.code === "ArrowLeft") {
+    //   setIsOpen(false);
+    // } else if (event.code === "ArrowDown" || event.code === "ArrowRight") {
+    //   setIsOpen(true);
+    // }
+  };
+
   return (
-    <AccordionContext.Provider value={{ isOpen, handleOpen }}>
+    <AccordionContext.Provider value={{ isOpen, handleOpen, handleKeyDown }}>
       <div
-        className={
-          styles.accordion + ` ${isOpen ? styles.open : ""}` + " " + className
-        }
+        className={`${styles.accordion} ${
+          isOpen ? styles.open : ""
+        } ${className}`}
         {...props}
       >
         {children}
@@ -38,9 +56,13 @@ function Accordion({ children, className, ...props }: AccordionProps) {
 }
 
 function Header({ headingText }: { headingText: string }) {
-  const { isOpen, handleOpen } = useAccordion();
+  const { isOpen, handleOpen, handleKeyDown } = useAccordion();
   return (
-    <div className={styles.accordion_heading}>
+    <div
+      className={styles.accordion_heading}
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+    >
       <Heading
         className={isOpen ? styles.header_open : styles.header_close}
         heading="h3"
@@ -48,7 +70,7 @@ function Header({ headingText }: { headingText: string }) {
         {headingText}
       </Heading>
 
-      <button type="button" onClick={handleOpen}>
+      <button type="button" tabIndex={-1} onClick={handleOpen}>
         <img
           className={`${
             isOpen

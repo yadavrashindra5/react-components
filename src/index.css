@@ -163,6 +163,7 @@ hr {
   background-color: var(--primary-button-color);
 }
 
+.primary:focus,
 .primary:hover {
   box-shadow: 6px 6px 2px 1px #0079ff60;
   background-color: var(--primary-button-color-on-hover);
@@ -173,6 +174,7 @@ hr {
   background-color: var(--secondary-button-color);
 }
 
+.secondary:focus,
 .secondary:hover {
   box-shadow: 6px 6px 2px 1px #00b28240;
   color: #fff;
@@ -183,6 +185,7 @@ hr {
   background-color: var(--tertiary-button-color);
 }
 
+.tertiary:focus,
 .tertiary:hover {
   box-shadow: 6px 6px 2px 1px #c8bf7c60;
   color: #fff;
@@ -193,6 +196,7 @@ hr {
   background-color: var(--danger-button-color);
 }
 
+.danger:focus,
 .danger:hover {
   box-shadow: 6px 6px 2px 1px #cc004d40;
   color: #fff;
@@ -204,6 +208,7 @@ hr {
   color: var(--primary-button-color);
 }
 
+.secondary_primary:focus,
 .secondary_primary:hover {
   color: #000;
   background-color: var(--primary-button-color);
@@ -215,6 +220,7 @@ hr {
   color: var(--secondary-button-color);
 }
 
+.secondary_secondary:focus,
 .secondary_secondary:hover {
   color: #000;
   background-color: var(--secondary-button-color);
@@ -226,6 +232,7 @@ hr {
   color: var(--tertiary-button-color);
 }
 
+.secondary_tertiary:focus,
 .secondary_tertiary:hover {
   color: #000;
   background-color: var(--tertiary-button-color);
@@ -237,6 +244,7 @@ hr {
   color: var(--danger-button-color);
 }
 
+.secondary_danger:focus,
 .secondary_danger:hover {
   color: #000;
   background-color: var(--danger-button-color);
@@ -246,6 +254,8 @@ hr {
 .secondary_simple {
   color: #000;
 }
+
+.secondary_simple:focus,
 .secondary_simple:hover {
   box-shadow: none;
 }
